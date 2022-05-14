@@ -30,7 +30,7 @@ router.delete('/:id', async (req, res) => {
 
 async function loadPostsCollection() {
   const client = await mongoose.connect(
-    'mongodb+srv://viverdb:30108@viver01.1owne.mongodb.net/',
+    'mongodb+srv://viverdb:301085@viver01.1owne.mongodb.net/',
     {
       useNewUrlParser: true
     }

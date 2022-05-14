@@ -1,20 +1,19 @@
 <template>
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <PostComponent />
-  </div>
-  
+    <NavBar />
+    <router-view />
+    <FooterViver />
 </template>
 
 <script>
-import PostComponent from './components/PostComponent.vue'
-
-export default {
-  name: 'App',
-  components: {
-    PostComponent
-  }
-};
+  import NavBar from './components/NavBar.vue'
+  import FooterViver from './components/FooterViver.vue'
+  
+  export default {        
+    components: {
+    NavBar,
+    FooterViver
+},          
+    }
 </script>
 
 <style>
