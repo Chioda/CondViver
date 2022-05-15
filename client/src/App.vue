@@ -1,7 +1,10 @@
 <template>
+  <div>
     <NavBar />
     <router-view />
     <FooterViver />
+  </div>
+
 </template>
 
 <script>

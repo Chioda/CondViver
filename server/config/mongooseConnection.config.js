@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // ==> Conexão Base de Dados:
-mongoose.connect('mongodb+srv://viverdb:301085@viver01.1owne.mongodb.net/', {
+mongoose.connect('mongodb+srv://viverdb:301085@viver01.1owne.mongodb.net/Viver01', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
  }).then(() => {

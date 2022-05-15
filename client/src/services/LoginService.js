@@ -1,5 +1,5 @@
 import swal from 'sweetalert';
-import PostService from '../PostService';
+import http from '../http/index';
 
 export default {
   /**
@@ -8,7 +8,7 @@ export default {
    */
   async loginUser(user) {
     try {
-      const response = await PostService().post('/login', user);
+      const response = await http().post('/login', user);
       const { token } = response.data;
       localStorage.setItem('jwt', token);
 
