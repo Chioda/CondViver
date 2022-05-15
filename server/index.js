@@ -1,20 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongooseConnection = require("./config/mongooseConnection.config");
+const app = require('./app.js');
 
+//const posts = require('./routes/api/posts');
 
-const app = express();
-
-const index = require("./routes/index");
-const userRoutes = require("./routes/user.routes");
-
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());
-
-app.use(index);
-app.use("/api/v1/", userRoutes);
+//app.use('/api/posts', posts);
 
 // Handle production
 if (process.env.NODE_ENV === 'production') {
