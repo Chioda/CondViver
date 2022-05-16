@@ -36,7 +36,7 @@
               id="password"
               name="password"
               class="form-control mb-5"
-              placeholder="Digite sua password"
+              placeholder="Digite sua Senha"
               v-model="loginForm.password"
               :class="{
                 'is-invalid': isSubmitted && $v.loginForm.password.$error,
@@ -51,17 +51,19 @@
           </div>
           <!--FIM BLOCO: Password-->
           <p class="center">
-            Não tem uma conta cadastrada?<router-link to="/cadastre-se">
+            Não tem uma conta cadastrada?<router-link to="/register">
               Cadastre Aqui</router-link
             >
           </p>
           <!--INÍCIO BLOCO: Botão-->
+          <center>
             <button
               @click="submitLoginUser"
               class="btn btn-primary btn-block w-75 my-4"
             >
               Entrar
-            </button>   
+            </button>
+          </center>
           <!--FIM BLOCO: Botão-->
         </form>
       </div>
@@ -114,7 +116,7 @@ export default {
       } catch (error) {
         swal({
           title: 'password Incorreto!',
-          text: 'Digite a password cadastrada!',
+          text: 'Digite o password cadastrado!',
           icon: 'error',
         });
       }
