@@ -15,8 +15,8 @@
     components: {
     NavBar,
     FooterViver
-},          
-    }
+    },          
+  }
 </script>
 
 <style>

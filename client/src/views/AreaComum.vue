@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import PostService from '../PostService'
+import Api from '../services/Api'
 // @ is an alias to /src
 
 
@@ -56,7 +56,7 @@ export default {
   name: 'AreaComum',
   
   mounted () {
-    PostService.get('/areacomum')
+    Api.get('/areacomum')
       .then(response => this.areacomum = response.data)
       .catch(erro => console.log(erro))
 },

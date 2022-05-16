@@ -56,14 +56,12 @@
             >
           </p>
           <!--INÍCIO BLOCO: Botão-->
-          <center>
             <button
               @click="submitLoginUser"
               class="btn btn-primary btn-block w-75 my-4"
             >
               Entrar
-            </button>
-          </center>
+            </button>   
           <!--FIM BLOCO: Botão-->
         </form>
       </div>
@@ -75,7 +73,7 @@
 
 import swal from 'sweetalert';
 import { required } from 'vuelidate/lib/validators';
-import LoginService from '../services/LoginService.js';
+import LoginService from '../services/LoginService';
 
 export default {
   name: 'LoginViver',

@@ -25,7 +25,7 @@
 </template> 
 
 <script>
-  import PostService from "../PostService"
+  import Api from '../services/Api'
   export default {
 
     data: function() {
@@ -39,7 +39,7 @@
     },
     methods: {
         enviarFormulario() {
-            PostService
+            Api
               .insertPost(this.usuario)
               .then(resposta => { 
                   console.log(resposta)  

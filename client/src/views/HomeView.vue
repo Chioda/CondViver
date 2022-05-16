@@ -1,33 +1,35 @@
 <template>
-  <section id="main-banner" class="mainSection bg-img-section img-fluid" style="background-image: url(img/Churrasqueira.jpeg);"></section>
-  <div class="main-container">
-    <h1 id="titulo">DESTAQUES</h1>
-    <ul class="lista">
-      <li class="lista-destaques">
-        <div>
-          <div class="lado-lado">
-            <img class="painel-corpo" src="/img/Criancas.jpeg" alt="Criancas">          
-            <h2 class="painel-titulo">Colônia de Férias para as crianças do Viver</h2>
-            <span>10 de Janeiro de 2022</span>             
+  <div>
+    <section id="main-banner" class="mainSection bg-img-section img-fluid" style="background-image: url(img/Churrasqueira.jpeg);"></section>
+    <div class="main-container">
+      <h1 id="titulo">DESTAQUES</h1>
+      <ul class="lista">
+        <li class="lista-destaques">
+          <div>
+            <div class="lado-lado">
+              <img class="painel-corpo" src="/img/Criancas.jpeg" alt="Criancas">          
+              <h2 class="painel-titulo">Colônia de Férias para as crianças do Viver</h2>
+              <span>10 de Janeiro de 2022</span>             
+            </div>
+            <div class="lado-lado">
+              <img class="painel-corpo" src="/img/Covid.jpeg" alt="Covid">          
+              <h2 class="painel-titulo">Liberada a obrigatoriedade das mascaras no condomínio </h2>
+              <span>02 de Janeiro de 2022</span>   
+            </div>
+            <div class="lado-lado">
+              <img class="painel-corpo" src="/img/Gas.jpeg" alt="Gas">         
+              <h2 class="painel-titulo">Nova assembléia para regras dos medidores de Gás</h2>
+              <span>10 de Dezembro de 2021</span> 
+            </div>
           </div>
-          <div class="lado-lado">
-            <img class="painel-corpo" src="/img/Covid.jpeg" alt="Covid">          
-            <h2 class="painel-titulo">Liberada a obrigatoriedade das mascaras no condomínio </h2>
-            <span>02 de Janeiro de 2022</span>   
-          </div>
-          <div class="lado-lado">
-            <img class="painel-corpo" src="/img/Gas.jpeg" alt="Gas">         
-            <h2 class="painel-titulo">Nova assembléia para regras dos medidores de Gás</h2>
-            <span>10 de Dezembro de 2021</span> 
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
+        </li>
+      </ul>
+    </div>
+  </div>  
 </template>
 
 <script>
-  import http from '@/http'
+  import Api from '../services/Api'
 
   // @ is an alias to /src
 
@@ -36,7 +38,7 @@
     name: 'HomeView',
     
     mounted () {
-      http.get('/')
+      Api.get('/')
         .then(response => this.home = response.data)
         .catch(erro => console.log(erro))
         
