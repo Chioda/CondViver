@@ -2,53 +2,98 @@
   <body>   
     <div class="main-container">
         <h1>EFETUE SEU CADASTRO</h1>
-        <form @submit.prevent="enviarFormulario">
+        <form @submit.prevent="registerSubmitUserForm()">
             <div class="form-group">
                 <label for="nome">Nome  </label>
-                <input type="text" class="form-control" v-model="usuario.nome">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control mb-5"
+                  placeholder="Inclua seu Nome"
+                  v-model="registerForm.name"                  
+                />
             </div>
             <br>
             <div class="form-group">
                 <label for="email">E-mail  </label>
-                <input type="email" class="form-control" v-model="usuario.email">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control mb-5"
+                  placeholder="Inclua seu E-mail"
+                  v-model="registerForm.email"              
+                />
             </div>
             <br>
             <div class="form-group">
                 <label for="senha">Senha  </label>
-                <input type="password" class="form-control" v-model="usuario.senha">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control mb-5"
+                  placeholder="Inclua a Senha"
+                  v-model="registerForm.password"              
+                />
             </div>
             <br>
-            <button class="btn-primary" type="submit">Salvar</button>
+            <center>
+            <button
+              @click="submitRegisterUser"
+              class="btn btn-primary btn-block w-75 my-4"
+            >
+              Cadastrar
+            </button>
+          </center>
+            <br>
+            <p class="center">
+            Já possui um login cadastrado?<router-link to="/login">
+              Faça o Login Aqui</router-link>
+          </p>
         </form>
     </div>
   </body> 
 </template> 
 
 <script>
-  import Api from '../services/Api'
-  export default {
+import swal from 'sweetalert';
+import RegisterService from '../services/RegisterService';
 
-    data: function() {
-      return {
-        usuario: {
-          nome: "",
-          senha: "",
-          email: ""
-        }
+export default {
+  name: 'RegisterComponent',
+  data() {
+    return {
+      registerForm: {
+        name: null,
+        email: null,
+        password: null,
+      },
+      isSubmitted: false,
+    };
+  },
+  methods: {
+    registerSubmitUserForm() {},
+
+    async submitRegisterUser() {
+      try {
+        this.isSubmitted = true;  
+        await RegisterService.registerNewUser(this.registerForm);
+        this.$router.push('/');
+        setTimeout(function() {
+          window.location.reload(1);
+        }, 1);
+      } catch (error) {
+        swal({
+          title: 'Oops!',
+          text: 'Alguma coisa deu errado aqui!',
+          icon: 'error',
+        });
       }
     },
-    methods: {
-        enviarFormulario() {
-            Api
-              .insertPost(this.usuario)
-              .then(resposta => { 
-                  console.log(resposta)  
-                  this.$router.push({ name: 'login' })              
-              })
-              .catch(erro => console.log(erro))
-          }
-      }
-  };  
+  },
+};  
 </script>
 
 <style scoped>

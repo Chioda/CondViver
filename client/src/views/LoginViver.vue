@@ -67,7 +67,7 @@ export default {
         this.$router.push('/');
         setTimeout(function() {
           window.location.reload(1);
-        }, 3);                 
+        }, 1);                 
                  
       } catch (error) {
         swal({
