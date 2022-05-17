@@ -1,56 +1,44 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
-        <form
-          class="text-center border border-primary p-5"
-          style="margin-top: 70px; height: auto; padding-top: 100px !important"
-          v-on:submit.prevent="loginSubmitUserForm()"
-        >
-          <!--INÍCIO BLOCO: E-mail-->
-          <div class="form-group">
-            <input
-              type="text"
-              id="email"
-              name="email"
-              class="form-control mb-5"
-              placeholder="Digite seu E-mail"
-              v-model="loginForm.email"              
-            />            
-          </div>
-          <!--FIM BLOCO: E-mail-->
-
-          <!--INÍCIO BLOCO: Password-->
-          <div class="form-group">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="form-control mb-5"
-              placeholder="Digite sua Senha"
-              v-model="loginForm.password"              
-            />            
-          </div>
-          <!--FIM BLOCO: Password-->
-          <p class="center">
-            Não tem uma conta cadastrada?<router-link to="/register">
-              Cadastre Aqui</router-link
-            >
-          </p>
-          <!--INÍCIO BLOCO: Botão-->
-          <center>
-            <button
-              @click="submitLoginUser"
-              class="btn btn-primary btn-block w-75 my-4"
-            >
-              Entrar
+<body class="body">
+    <div class="main-container">        
+        <h1>Efetue seu Login</h1>
+        <form @submit.prevent="loginSubmitUserForm()">
+            <div class="form.group">
+                <label for="email">E-mail  </label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  class="form-control mb-5"
+                  placeholder="Digite seu E-mail"
+                  v-model="loginForm.email"              
+                />                
+            </div>
+            <br>
+            <div class="form.group">
+                <label for="senha">Senha  </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control mb-5"
+                  placeholder="Digite sua Senha"
+                  v-model="loginForm.password"              
+                />
+            </div>
+            <br>
+            <button @click="submitLoginUser"
+              class="btn btn-primary btn-block w-75 my-4"> 
+                Logar 
             </button>
-          </center>
-          <!--FIM BLOCO: Botão-->
+            <div class="cadastro-name">
+            <router-link :to="{ name: 'novo.usuario' }">
+                Cadastre-se aqui!
+            </router-link>
+            </div>
         </form>
-      </div>
-    </div>
-  </div>
+    </div>      
+  </body>
 </template>
 
 <script>
@@ -77,6 +65,10 @@ export default {
 
         await LoginService.loginUser(this.loginForm);
         this.$router.push('/');
+        setTimeout(function() {
+          window.location.reload(1);
+        }, 3);                 
+                 
       } catch (error) {
         swal({
           title: 'password Incorreto!',

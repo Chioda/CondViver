@@ -1,5 +1,6 @@
 <template>
-    <div id="nav">      
+    <div>
+        <div id="nav">      
         <router-link to="/" id="logo-url">
             <img src="../assets/Logo.jpeg" width="100"  height="40">
         </router-link>
@@ -28,6 +29,7 @@
             </ul>
         </nav> 
     </ul>
+    </div>
 </template>
 
 <script>
@@ -41,7 +43,7 @@
                     this.$router.push({ name: 'novo.usuario'})
                 },
                 efetuarLogout () {
-                    localStorage.removeItem('token')
+                    localStorage.removeItem('jwt');                                      
                     this.$router.push({ name: 'login'})
                     setTimeout(function() {
                         window.location.reload(1);
@@ -50,7 +52,7 @@
         },
         computed: {
             usuarioestaLogado() {
-                return Boolean(localStorage.getItem('token'))                   
+                return Boolean(localStorage.getItem('jwt'))                   
             }
         }
     }    
