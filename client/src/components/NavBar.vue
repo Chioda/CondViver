@@ -19,13 +19,13 @@
             <a id="resp-menu" class="responsive-menu" href="#"><i class="fa fa-reorder"></i> Menu</a>    
             <ul class="menu">        
                 <li><a  href="/"><i class="fa fa-user"></i> DESTAQUES</a></li>
-                <li><a  href="#"><i class="fa fa-camera"></i> ANÚNCIOS</a></li>
+                <li><a  href="/anuncios"><i class="fa fa-camera"></i> ANÚNCIOS</a></li>
                 <li><a  href="/financ"><i class="fa fa-bullhorn"></i> FINANÇAS</a></li>
                 <li><a  href="/convencao"><i class="fa fa-tags"></i> CONVENÇÃO</a></li>
-                <li><a  href="#"><i class="fa fa-envelope"></i> ASSEMBLÉIA ONLINE</a></li>
+                <li><a  href="/assembleia"><i class="fa fa-envelope"></i> ASSEMBLÉIA ONLINE</a></li>
                 <li><a  href="/areacomum"><i class="fa fa-sitemap"></i> ÁREA COMUM</a></li>
-                <li><a  href="#"><i class="fa fa-exclamation-triangle"></i> CHECK-IN</a></li>
-                <li><a  href="#"><i class="fa fa-exclamation-triangle"></i> ÁREA DO SÍNDICO</a></li>
+                <li><a  href="/check-in"><i class="fa fa-exclamation-triangle"></i> CHECK-IN</a></li>
+                <li><a  href="/area-sindico"><i class="fa fa-exclamation-triangle"></i> ÁREA DO SÍNDICO</a></li>
             </ul>
         </nav> 
     </ul>

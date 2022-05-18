@@ -79,8 +79,7 @@ export default {
         this.isSubmitted = true;  
         await RegisterService.registerNewUser(this.registerForm);
         this.$router.push('/login');
-      } catch (error) {
-        console.log(error),
+      } catch (error) {       
         swal({
           title: 'Oops!',
           text: 'Erro ao realizar cadastro!',
