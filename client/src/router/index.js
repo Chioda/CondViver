@@ -4,6 +4,7 @@ import NovoUsuario from '../views/NovoUsuario.vue'
 import ConvencaoViver from '../views/ConvencaoViver.vue'
 import LoginViver from '../views/LoginViver.vue'
 import AreaComum from '../views/AreaComum.vue'
+import FinancViver from '../views/FinancViver.vue'
 //import 'bootstrap'
 
 
@@ -37,6 +38,15 @@ const routes = [
     path: '/areacomum',
     name: 'areacomum',
     component: AreaComum,
+    meta: {
+      requireAuth: true,
+    },
+  },
+
+  {
+    path: '/financ',
+    name: 'financ',
+    component: FinancViver,
     meta: {
       requireAuth: true,
     },

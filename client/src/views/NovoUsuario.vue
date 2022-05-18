@@ -78,14 +78,12 @@ export default {
       try {
         this.isSubmitted = true;  
         await RegisterService.registerNewUser(this.registerForm);
-        this.$router.push('/');
-        setTimeout(function() {
-          window.location.reload(1);
-        }, 1);
+        this.$router.push('/login');
       } catch (error) {
+        console.log(error),
         swal({
           title: 'Oops!',
-          text: 'Alguma coisa deu errado aqui!',
+          text: 'Erro ao realizar cadastro!',
           icon: 'error',
         });
       }

@@ -71,8 +71,8 @@ export default {
                  
       } catch (error) {
         swal({
-          title: 'password Incorreto!',
-          text: 'Digite o password cadastrado!',
+          title: 'Login ou password Incorreto!',
+          text: 'Digite Login e password cadastrado!',
           icon: 'error',
         });
       }
