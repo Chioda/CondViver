@@ -38,15 +38,13 @@
                   v-model="registerForm.password"              
                 />
             </div>
-            <br>
-            <center>
+            <br>            
             <button
               @click="submitRegisterUser"
               class="btn btn-primary btn-block w-75 my-4"
             >
               Cadastrar
-            </button>
-          </center>
+            </button>          
             <br>
             <p class="center">
             Já possui um login cadastrado?<router-link to="/login">

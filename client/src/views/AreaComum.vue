@@ -47,19 +47,17 @@
 </template>
 
 <script>
-import Api from '../services/Api'
-// @ is an alias to /src
-
+//import Api from '../services/Api'
 
 
 export default {
   name: 'AreaComum',
   
-  mounted () {
+/*  mounted () {
     Api.get('/areacomum')
       .then(response => this.areacomum = response.data)
       .catch(erro => console.log(erro))
-},
+},*/
   
 }
 </script>

@@ -37,10 +37,16 @@
         name: "NavBar",             
         methods:{
                 direcionaLogin () {
-                    this.$router.push({ name: 'login'})
+                    this.$router.push({ name: 'login'}),
+                    setTimeout(function() {
+                        window.location.reload(1);
+                    }, 1);
                 },
                 direcionaRegistrar () {
-                    this.$router.push({ name: 'novo.usuario'})
+                    this.$router.push({ name: 'novo.usuario'}),
+                    setTimeout(function() {
+                        window.location.reload(1);
+                    }, 1);
                 },
                 efetuarLogout () {
                     localStorage.removeItem('jwt');                                      

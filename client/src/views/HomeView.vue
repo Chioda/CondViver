@@ -29,20 +29,18 @@
 </template>
 
 <script>
-  import Api from '../services/Api'
-
-  // @ is an alias to /src
+ // import Api from '../services/Api'
 
 
   export default {
     name: 'HomeView',
     
-    mounted () {
+ /*   mounted () {
       Api.get('/')
         .then(response => this.home = response.data)
         .catch(erro => console.log(erro))
         
-  },
+  },*/
     
   }
 </script>
