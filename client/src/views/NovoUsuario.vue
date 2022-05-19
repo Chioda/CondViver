@@ -9,7 +9,7 @@
                   type="text"
                   id="name"
                   name="name"
-                  class="form-control mb-5"
+                  class="form-control mb-2"
                   placeholder="Inclua seu Nome"
                   v-model="registerForm.name"                  
                 />
@@ -21,7 +21,7 @@
                   type="email"
                   id="email"
                   name="email"
-                  class="form-control mb-5"
+                  class="form-control mb-2"
                   placeholder="Inclua seu E-mail"
                   v-model="registerForm.email"              
                 />
@@ -33,12 +33,13 @@
                   type="password"
                   id="password"
                   name="password"
-                  class="form-control mb-5"
+                  class="form-control mb-2"
                   placeholder="Inclua a Senha"
                   v-model="registerForm.password"              
                 />
             </div>
-            <br>            
+            <br>
+            <center>            
             <button
               @click="submitRegisterUser"
               class="btn btn-primary btn-block w-75 my-4"
@@ -47,9 +48,10 @@
             </button>          
             <br>
             <p class="center">
-            Já possui um login cadastrado?<router-link to="/login">
+            Já possui um login cadastrado?<router-link class="router" to="/login">
               Faça o Login Aqui</router-link>
-          </p>
+            </p>
+            </center>
         </form>
     </div>
   </body> 
@@ -94,19 +96,18 @@ export default {
 <style scoped>
   body {
     background-image: url("../assets/Fundo.jpeg");
-    height: 471px;
+    height: 600px;
   }
 
-  .main-container { 
-    background-color: grey;
-    position: absolute;
+  .main-container {     
+    background-color: grey;   
     border-radius: 12px;
-    margin-block: 100px;
-    left:40%;
-    font-size: 15px; 
-    color: white, bold;
-    
-    padding: 50px
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
   }
 
   h1{
@@ -127,9 +128,19 @@ export default {
   }
 
   .btn-primary{
-    padding:5px;
-    
-    
+    padding:5px;   
+  }
+
+  .center{
+    color: white
+  }
+
+  .router{
+    color: white
+  }
+
+  .router:hover {
+    color: darkblue;
   }
 
 </style>

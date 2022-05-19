@@ -1,8 +1,12 @@
-<template>
+<template>  
   <div>
     <NavBar />
-    <router-view />
-    <FooterViver />
+    <div class="body">
+      <router-view />
+      <div class="footer"><FooterViver /></div>
+    </div>
+    
+       
   </div>
 
 </template>
@@ -20,12 +24,12 @@
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.footer{
+    position:relative;
+    bottom: 0;  
+    width: 100%;
+    height: 100px;    
+    text-align: center;
+    line-height: 100px;
 }
 </style>

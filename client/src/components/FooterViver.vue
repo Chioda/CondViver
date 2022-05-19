@@ -31,10 +31,11 @@
     * {
         font-family: Roboto;
     }
+    
     .footer-absolute {
         position:-ms-page;
         bottom: 0;
-        width: 100%;        
+        width: 100%;
     }
 
     section {
@@ -48,11 +49,15 @@
         text-decoration: underline;    
     }
 
+    
+
     .footer-distributed {
         background-color: #292c2f;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+      
         box-sizing: border-box;
         width: 100%;
+        line-height: 100px;
         text-align: left;
         font: normal 16px sans-serif;
         padding: 30px 30px;

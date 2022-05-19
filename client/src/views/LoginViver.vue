@@ -9,11 +9,11 @@
                   type="text"
                   id="email"
                   name="email"
-                  class="form-control mb-5"
+                  class="form-control mb-2"
                   placeholder="Digite seu E-mail"
                   v-model="loginForm.email"              
                 />                
-            </div>
+            </div>  
             <br>
             <div class="form.group">
                 <label for="senha">Senha  </label>
@@ -21,21 +21,26 @@
                   type="password"
                   id="password"
                   name="password"
-                  class="form-control mb-5"
+                  class="form-control mb-2"
                   placeholder="Digite sua Senha"
                   v-model="loginForm.password"              
                 />
             </div>
             <br>
+            <center>
             <button @click="submitLoginUser"
               class="btn btn-primary btn-block w-75 my-4"> 
                 Logar 
             </button>
             <div class="cadastro-name">
-            <router-link :to="{ name: 'novo.usuario' }">
-                Cadastre-se aqui!
+            <p class="center"> 
+              Não tem cadastro?
+            <router-link class="router" :to="{ name: 'novo.usuario' }">
+              Cadastre-se aqui!
             </router-link>
+            </p> 
             </div>
+            </center>
         </form>
     </div>      
   </body>
@@ -84,19 +89,18 @@ export default {
 <style scoped>
   body {
     background-image: url("../assets/Fundo.jpeg");
-    height: 471px;
+    height: 600px;
   }
 
   .main-container { 
-    background-color: grey;
-    position: absolute;
+    background-color: grey;   
     border-radius: 12px;
-    margin-block: 100px;
-    left:40%;
-    font-size: 15px; 
-    color: white, bold;
-    
-    padding: 50px
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
   }
 
   h1{
@@ -107,8 +111,8 @@ export default {
   }
 
   .cadastro-name {
-    font-size: 10px;
-    padding: 10px;
+    font-size: 15px;
+    padding: 5px;
     
   }
 
@@ -117,8 +121,20 @@ export default {
   }
 
   .btn-primary{
-    padding:5px;
-    
-    
+    padding:5px;    
   }
+
+  .center{
+    color: white
+  }
+
+  .router{
+    color: white
+  }
+
+  .router:hover {
+    color: darkblue;
+  }
+
+
 </style>

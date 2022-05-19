@@ -10,8 +10,26 @@
             <button class="nav-item-logout" type="Submit" href="#" @click.prevent="efetuarLogout">Logout</button>
         </ul>
         <div class="navbar-nav mr-auto" v-else>
-            <button class="nav-item" type="Submit" href="#" @click.prevent="direcionaLogin">Login</button>  
-            <button class="nav-item" type="Submit" href="#" @click.prevent="direcionaRegistrar">Registre-se </button>        
+            <table>
+        <tr>
+        <td>
+            <div>
+                <button class="nav-item" type="Submit" href="#" @click.prevent="direcionaLogin">Login</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <button class="nav-item" type="Submit" href="#" @click.prevent="direcionaRegistrar">Registre-se </button>
+            </div>
+        </td>       
+        </tr>
+    </table>
+            <div>
+                            
+            </div>
+            <div>
+                
+            </div>        
         </div>   
     </div> 
     <ul class="navbar-nav mr-auto" v-if="usuarioestaLogado">
@@ -67,8 +85,8 @@
 <style>
 
 #nav {
-    background-color: rgb(182, 181, 181);
-    position:relative;
+    background-image: linear-gradient(black, #024772);
+    position:center;
     border-bottom: 4x solid #111;
     padding: 10px 50px;
     display: flex;
@@ -97,8 +115,8 @@
     border-radius: 12px;
     padding: 8px 8px;
     margin: 5px;
-    text-align: center;
-    display: inline-block;
+    text-align: center; 
+    display:inline-block;
     font-size: 12px, bold;
     color: #fff;
   }
@@ -112,12 +130,12 @@
    .nav-item-logout{
     background-color:red; 
     border-radius: 12px;
-    font: white,bold;
+    font: white;
     padding: 8px 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
+    font-size: 12px, bold;
     color: #fff;
   }
 
@@ -177,7 +195,7 @@ nav {
 
 .menu li {
     display: inline-block;
-    position: relative;
+    position: center;
     z-index: 100;
 }
 
@@ -205,7 +223,7 @@ nav {
     margin: 0;
     padding: 0;
     width: 170px;
-    position: absolute;
+    position: center;
     left: 0px;
     background: #fff;
     z-index: 99;
@@ -215,7 +233,7 @@ nav {
 
 .menu ul:after {
     bottom: 100%;
-    left: 20%;
+    left: 40%;
     border: solid transparent;
     content: " ";
     height: 0;
