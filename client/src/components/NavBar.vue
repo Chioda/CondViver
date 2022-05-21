@@ -37,13 +37,13 @@
             <a id="resp-menu" class="responsive-menu" href="#"><i class="fa fa-reorder"></i> Menu</a>    
             <ul class="menu">        
                 <li><a  href="/"><i class="fa fa-user"></i> DESTAQUES</a></li>
-                <li><a  href="/anuncios"><i class="fa fa-camera"></i> ANÚNCIOS</a></li>
-                <li><a  href="/financ"><i class="fa fa-bullhorn"></i> FINANÇAS</a></li>
-                <li><a  href="/convencao"><i class="fa fa-tags"></i> CONVENÇÃO</a></li>
-                <li><a  href="/assembleia"><i class="fa fa-envelope"></i> ASSEMBLÉIA ONLINE</a></li>
-                <li><a  href="/areacomum"><i class="fa fa-sitemap"></i> ÁREA COMUM</a></li>
-                <li><a  href="/check-in"><i class="fa fa-exclamation-triangle"></i> CHECK-IN</a></li>
-                <li><a  href="/area-sindico"><i class="fa fa-exclamation-triangle"></i> ÁREA DO SÍNDICO</a></li>
+                <li><a  href="/anuncios"><i class="fa fa-anuncios"></i> ANÚNCIOS</a></li>
+                <li><a  href="/financ"><i class="fa fa-financas"></i> FINANÇAS</a></li>
+                <li><a  href="/convencao"><i class="fa fa-concencao"></i> CONVENÇÃO</a></li>
+                <li><a  href="/assembleia"><i class="fa fa-assembleia"></i> ASSEMBLÉIA ONLINE</a></li>
+                <li><a  href="/areacomum"><i class="fa fa-area"></i> ÁREA COMUM</a></li>
+                <li><a  href="/check-in"><i class="fa fa-check"></i> CHECK-IN</a></li>
+                <li><a  href="/area-sindico"><i class="fa fa-sindico"></i> ÁREA DO SÍNDICO</a></li>
             </ul>
         </nav> 
     </ul>
@@ -93,6 +93,7 @@
     justify-content: flex-end;
     align-items: center;
     width: 100%;
+    
 }
 
 #nav a{
@@ -191,6 +192,7 @@ nav {
 
 .menu {
     display: block;
+    position: center;
 }
 
 .menu li {
@@ -200,7 +202,8 @@ nav {
 }
 
 .menu li:first-child {
-    margin-left: 0;
+    margin-left: 100px;
+    
 }
 
 .menu li a {
@@ -376,7 +379,7 @@ a.homer {
     }
 
     .menu ul {
-        visibility: hidden;
+        visibility: visible;
         opacity: 0;
         top: 0;
         left: 0;

@@ -32,4 +32,9 @@
     text-align: center;
     line-height: 100px;
 }
+body {
+    background-image: url("../src/assets/Fundo.jpeg");
+    height: 600px;
+  }
+
 </style>

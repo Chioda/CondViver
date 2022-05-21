@@ -8,17 +8,33 @@
           <div>
             <div class="lado-lado">
               <img class="painel-corpo" src="/img/Criancas.jpeg" alt="Criancas">          
-              <h2 class="painel-titulo">Colônia de Férias para as crianças do Viver</h2>
+              <h2 class="painel-titulo">Colônia de Férias para as crianças do Viver
+                <br> 
+                <router-link class="router" :to="{ name: 'areacomum' }">
+                  Saiba mais...
+                </router-link>
+              </h2>
               <span>10 de Janeiro de 2022</span>             
             </div>
             <div class="lado-lado">
               <img class="painel-corpo" src="/img/Covid.jpeg" alt="Covid">          
-              <h2 class="painel-titulo">Liberada a obrigatoriedade das mascaras no condomínio </h2>
+              <h2 class="painel-titulo">Liberada a obrigatoriedade das máscaras no condomínio.   
+                <br> 
+                <router-link class="router" :to="{ name: 'areacomum' }">
+                  Saiba mais...
+                </router-link>
+              </h2>
+              
               <span>02 de Janeiro de 2022</span>   
             </div>
             <div class="lado-lado">
               <img class="painel-corpo" src="/img/Gas.jpeg" alt="Gas">         
-              <h2 class="painel-titulo">Nova assembléia para regras dos medidores de Gás</h2>
+              <h2 class="painel-titulo">Nova assembléia para regras dos medidores de Gás
+                <br> 
+                <router-link class="router" :to="{ name: 'areacomum' }">
+                  Saiba mais...
+                </router-link>
+              </h2>
               <span>10 de Dezembro de 2021</span> 
             </div>
           </div>
@@ -47,7 +63,7 @@
 
 <style scoped>
     #main-banner {
-        background-size: auto;
+        background-size: no-repeat center center;
         display: flex;
         width: 100%;
         height: 250px;
@@ -58,21 +74,27 @@
       text-align: left;
       color: white;
       background: rgb(52, 52, 53);
-      margin-left:145px;
-      margin-right: 145px;
+      margin-left:2%;
+      margin-right: 2%;
       margin-top: 20px;
-
+      font-weight: bold;
 
     }
     .painel-corpo {
     width: 100%;
+    height: 170px;
+  }
+
+  .lista-destaques{
+    margin-left: 5%;
+    list-style: none  ;
   }
 
     .painel-titulo {
     text-align: left;
     margin: 0 0 15px 0;
-    padding: 10px;
-    text-transform: uppercase; 
+    padding: 10px; 
+    font-size:medium;
   }
 
 .lado-lado {

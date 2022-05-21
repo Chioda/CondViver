@@ -68,9 +68,10 @@ export default {
       text-align: left;
       color: white;
       background: rgb(52, 52, 53);
-      margin-left:145px;
-      margin-right: 145px;
+      margin-left:2%;
+      margin-right: 2%;
       margin-top: 20px;
+      font-weight: bold;
 
 
     }
@@ -99,5 +100,9 @@ export default {
 
 }
 
+.lista{
+  list-style: none;
+  margin-left: 5%;
+}
 
 </style>
