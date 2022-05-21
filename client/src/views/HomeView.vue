@@ -98,15 +98,16 @@
   }
 
 .lado-lado {
+  background: white;
   padding: 0 auto;
-    border: solid 2px grey;
-    display: inline-block;
-    margin: 40px;
-    box-shadow: 5px 5px 10px grey;
-    width: 300px;
-    height: 100%;
-    vertical-align: top;
-    text-align: left;
+  border: solid 2px grey;
+  display: inline-block;
+  margin: 40px;
+  box-shadow: 5px 5px 10px grey;
+  width: 300px;
+  height: 100%;
+  vertical-align: top;
+  text-align: left;
 }
 
 
