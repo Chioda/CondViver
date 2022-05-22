@@ -9,8 +9,9 @@
                 <img src="../assets/Logo_Zoom.jpg" width="90"  height="50">            
                 <br>
                 <br>
-                Acesse a reunião online                 
-                <a class="link-1" href="https://zoom.us/" target="_blank">Aqui!</a>
+                Para acessar a reunião online 
+                <br>                
+                <a class="link-1" href="https://zoom.us/" target="_blank">Clique Aqui!</a>
                 <br>
                 <br>
                 ID da Reunião: 123 456
