@@ -1,7 +1,7 @@
 <template>
   
   <div class="main-container">
-    <h1 id="titulo">Área Comum</h1>
+    <h1 id="titulo">ÁREA COMUM</h1>
     <ul class="lista">
       <li class="lista-destaques">
         <div>
