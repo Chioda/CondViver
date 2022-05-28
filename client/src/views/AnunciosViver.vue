@@ -26,6 +26,19 @@
                     v-model="anuncioForm.author"
                     required>
             </div>
+
+            <div class="form-group">
+
+                <label for="phone" class="text-white">Contato</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Telefone de Contato" 
+                    name="phone" 
+                    v-model="anuncioForm.phone"
+                    required>
+            </div>  
+
             <div class="form-group">
 
                 <label for="description" class="text-white">Descrição</label>
@@ -59,6 +72,7 @@ export default {
       anuncioForm: {
         title: null,
         author: null,
+        phone: null,
         description: null,
       },
       isSubmitted: false,

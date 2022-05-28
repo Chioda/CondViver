@@ -1,6 +1,6 @@
-const Anuncio = require("../models/anuncio.model");
+const Anuncio = require("../models/anuncio.model.js");
 
-// ==> Método responsável por Criar um novo 'User':
+// ==> Método responsável por Criar um novo 'Anuncio':
 exports.registerNewAnuncio = async (req, res) => {
     try {       
       const newAnuncio = new Anuncio(req.body);

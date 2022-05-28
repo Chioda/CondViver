@@ -8,17 +8,17 @@ export default {
      */
     async registerNewAnuncio(newAnuncio) {
       try {
-        //const response = 
+        const response = 
         await Api().post('/anuncio', newAnuncio);
-        //const { _id } = response.data;
+        const status = response.status;
   
-        /*if (_id) {          
+        if (status) {          
           swal({
             title: 'Excelente!',
-            text: 'Usuário(a) cadastrado com sucesso!',
+            text: 'Anuncio cadastrado com sucesso!',
             icon: 'success',
           });
-        }*/
+        }
       } catch (error) {
         swal({
           title: 'Oops!',

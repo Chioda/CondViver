@@ -1,4 +1,3 @@
-
 const express = require('express');
 const anuncioController = require('../controllers/anuncio.controller');
 const router = express.Router();
