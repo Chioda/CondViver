@@ -1,7 +1,7 @@
 <template>
     <body class="body">
     <div class="main-container">        
-        <h1>Efetue seu Login</h1>
+        <h1>Crie seu anúncio</h1>
         <form @submit.prevent="anuncioSubmitForm()">            
             <div class="form-group">
 

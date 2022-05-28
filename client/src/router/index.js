@@ -4,6 +4,7 @@ import NovoUsuario from '../views/NovoUsuario.vue'
 import ConvencaoViver from '../views/ConvencaoViver.vue'
 import LoginViver from '../views/LoginViver.vue'
 import AreaComum from '../views/AreaComum.vue'
+import Agendamento from '../views/AgendamentoViver.vue'
 import FinancViver from '../views/FinancViver.vue'
 import AnunciosViver from '../views/AnunciosViver'
 import AssembleiaViver from '../views/AssembleiaViver'
@@ -54,6 +55,14 @@ const routes = [
     path: '/areacomum',
     name: 'areacomum',
     component: AreaComum,
+    meta: {
+      requireAuth: true,
+    },
+  },
+  {
+    path: '/agendamento',
+    name: 'agendamento',
+    component: Agendamento,
     meta: {
       requireAuth: true,
     },

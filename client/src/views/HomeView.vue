@@ -63,7 +63,7 @@
 
 <style scoped>
     #main-banner {
-        background-size: no-repeat center center;
+        background-size: cover;
         display: flex;
         width: 100%;
         height: 250px;

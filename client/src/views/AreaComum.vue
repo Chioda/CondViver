@@ -1,7 +1,12 @@
 <template>
   
   <div class="main-container">
-    <h1 id="titulo">ÁREA COMUM</h1>
+    <div id="nav-area">      
+      <h1 id="titulo">ÁREA COMUM</h1>
+      <ul class="navbar-nav mr-auto">         
+        <button class="nav-item" type="Submit" href="#" @click.prevent="direcionaAgendamento">Agendamento</button>
+      </ul>
+    </div>
     <ul class="lista">
       <li class="lista-destaques">
         <div>
@@ -50,16 +55,17 @@
 //import Api from '../services/Api'
 
 
-export default {
-  name: 'AreaComum',
-  
-/*  mounted () {
-    Api.get('/areacomum')
-      .then(response => this.areacomum = response.data)
-      .catch(erro => console.log(erro))
-},*/
-  
-}
+  export default {
+    name: 'AreaComum',
+    methods:{
+      direcionaAgendamento () {
+        this.$router.push({ name: 'agendamento'}),
+          setTimeout(function() {
+            window.location.reload(1);
+          }, 1);
+      },                   
+    },
+  }
 </script>
 
 <style scoped>
@@ -68,13 +74,49 @@ export default {
       text-align: left;
       color: white;
       background: rgb(52, 52, 53);
-      margin-left:2%;
+      
       margin-right: 2%;
       margin-top: 20px;
       font-weight: bold;
-
-
+      margin: auto;
+      margin-left: 0;
     }
+
+  #nav-area {
+    background: rgb(52, 52, 53);
+    position:center;
+    border-bottom: 4x solid #111;
+    margin-left:2%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 95%;
+    
+}
+
+#nav a{
+    text-decoration: none;
+}
+
+.nav-item{
+    background-color: blue; 
+    border-radius: 12px;
+    padding: 8px 8px;
+    margin: 5px;
+    text-align: center; 
+    display:inline-block;
+    font-size: 12px, bold;
+    color: #fff;
+  }
+
+ .nav-item:hover{
+    background: #062486;
+    color: #fff;
+    text-decoration: none;
+ } 
+
+
     .painel-corpo {
     width: 100%;
   }
