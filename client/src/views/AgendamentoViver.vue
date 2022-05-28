@@ -13,14 +13,16 @@
             <option value="sl_festas">Salão de Festas</option>                    
           </select>
           <br>
-          <br>          
+          <br>  
+          <br>        
           <div class="calendario">
             <label for="calendario">Selecione a data do agendamento:</label>
             <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
           </div>
+          <br>
           <br>          
           <div class="horario">          
-            <label for="horario" >Selecione o horário:</label>
+            <label for="horario" >Selecione o horário do agendamento:</label>
             <select required name="horario" id="horario" v-model="horario" >
               <option value="">Selecione um horário</option>
               <option value="10:00">10:00</option>
@@ -39,7 +41,7 @@
           </div>           
         
         <br>
-        
+        <br>
           <input class="submit-btn" type="submit" value="Realizar Agendamento">
          
           
@@ -143,8 +145,9 @@ export default {
 
   
  .main-container {
-    display:inline-block;   
-    flex-direction: column;
+    
+    align-items:stretch;  
+    flex-direction:row;
     margin-bottom: 20px;
     margin-top: 60px;
     max-width: 400px;
@@ -154,6 +157,12 @@ export default {
     
   }
 
+  #agendamento-form {
+    background-color: rgb(150, 150, 150);   
+    border-radius: 12px;
+    padding: 25px 10px;
+
+  }
 
   #horario option {
     color: black
@@ -170,10 +179,10 @@ export default {
     margin-bottom: 15px;
     color: #222;;
     padding: 5px 10px;
-    border-left: 4px solid #fcba03;
+    
   }
   input, select {
-    display:inline-block;
+    
     padding: 5px 10px;
     width: 300px;
   }
