@@ -2,7 +2,9 @@
   <body>    
     <h1 id="titulo">AGENDAMENTO</h1>
     <div class="main-container">      
-      <form id="agendamento-form" method="POST" @submit="createAgendamento">        
+      <form id="agendamento-form" method="POST" @submit="createAgendamento">  
+        <h2>REALIZE SEU AGENDAMENTO</h2>  
+         <br>   
         <div class="input-container">
           <label for="local">Selecione o local:</label>
           <select required name="local" id="local" v-model="local">
@@ -15,10 +17,7 @@
           <br>
           <br>  
           <br>        
-          <div class="calendario">
-            <label for="calendario">Selecione a data do agendamento:</label>
-            <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
-          </div>
+          <DataAgendamento />
           <br>
           <br>          
           <div class="horario">          
@@ -54,78 +53,13 @@
 </template>
 
 <script>
-import myDatepicker from 'vue-datepicker'
+import DataAgendamento from '../components/DataAgendamento.vue';
 
-
-export default {
-  data () {
-    return {
-      
- 
-    
-      startTime: {
-        time: '' 
-      },
-      endtime: {
-        time: ''
-      },
- 
-      option: {
-        type: 'day',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        format: 'DD-MM-YYYY',
-        placeholder: 'Escolha uma data',
-        inputStyle: {
-          'display': 'inline-block',
-          'padding': '5px',
-          'max-width': '400px',
-          
-          'font-size': '16px',
-          'border': '2px solid #fff',
-          'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 0.2)',
-          'border-radius': '2px',
-          'color': '#5F5F5F'
-        },
-        color: {
-          header: '#ccc',
-          headerText: '#f00'
-        },
-        buttons: {
-          ok: 'Ok',
-          cancel: 'Cancel'
-        },
-        overlayOpacity: 0.5, // 0.5 as default
-        dismissible: true // as true as default
-      },
-      timeoption: {
-        type: 'min',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        format: 'YYYY-MM-DD HH:mm'
-      },
-      multiOption: {
-        type: 'multi-day',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        format:"YYYY-MM-DD HH:mm"
-      },
-      limit: [{
-        type: 'weekday',
-        available: [1, 2, 3, 4, 5]
-      },
-      {
-        type: 'fromto',
-        from: '2016-02-01',
-        to: '2016-02-20'
-      }]
-    }
-  },
-  components: {
-    'date-picker': myDatepicker
+export default {        
+    components: {
+    DataAgendamento
+    },          
   }
-}
-  
  
 
 </script>
@@ -172,13 +106,18 @@ export default {
     color: gray;
   }
 
+  h2 {
+    background: white;
+  }
+
   label {
     display:inline-block;
     font-weight: bold;
     max-width: 300px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-top: 20px;
     color: #222;;
-    padding: 5px 10px;
+    padding: 3px 10px;
     
   }
   input, select {
