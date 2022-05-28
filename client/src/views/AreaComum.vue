@@ -127,6 +127,7 @@
     padding: 10px;
     text-transform: uppercase; 
     font-size:20px;
+    font-weight: bold;
   }
 
 .lado-lado {

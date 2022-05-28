@@ -4,7 +4,7 @@
     <div class="main-container">      
       <form id="agendamento-form" method="POST" @submit="createAgendamento">  
         <h2>REALIZE SEU AGENDAMENTO</h2>  
-         <br>   
+           
         <div class="input-container">
           <label for="local">Selecione o local:</label>
           <select required name="local" id="local" v-model="local">
@@ -14,14 +14,16 @@
             <option value="sl_beleza">Salão de Beleza</option>
             <option value="sl_festas">Salão de Festas</option>                    
           </select>
-          <br>
+          
           <br>  
-          <br>        
+          <br>   
+          <div class="input-container">     
           <DataAgendamento />
-          <br>
+          </div>
+          
           <br>          
-          <div class="horario">          
-            <label for="horario" >Selecione o horário do agendamento:</label>
+          <div class="input-container">          
+            <label for="horario" >Selecione o horário:</label>
             <select required name="horario" id="horario" v-model="horario" >
               <option value="">Selecione um horário</option>
               <option value="10:00">10:00</option>
@@ -39,10 +41,11 @@
             </select>  
           </div>           
         
+        
         <br>
-        <br>
+        <div class="input-container">
           <input class="submit-btn" type="submit" value="Realizar Agendamento">
-         
+        </div> 
           
         </div>      
       </form>
@@ -83,13 +86,15 @@ export default {
     align-items:stretch;  
     flex-direction:row;
     margin-bottom: 20px;
-    margin-top: 60px;
+    margin-top: 30px;
     max-width: 400px;
     max-height: 200px;
-    margin-left: 8%;
-    padding: 5px 10px;
-    
+    margin-left: 5%;
+    padding: 10px 5px;    
   }
+
+
+
 
   #agendamento-form {
     background-color: rgb(150, 150, 150);   
@@ -108,6 +113,8 @@ export default {
 
   h2 {
     background: white;
+    font-weight: bold;
+    font-size: 25px;
   }
 
   label {
