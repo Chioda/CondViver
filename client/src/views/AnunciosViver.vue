@@ -1,117 +1,108 @@
 <template>
-    <body class="body">
-    <div class="main-container">        
-        <h1>Crie seu anúncio</h1>
-        <form @submit.prevent="anuncioSubmitForm()">            
-            <div class="form-group">
+    <body class="body">      
+      <div class="main-container">
+        <div id="nav-area">      
+          <h1 id="titulo">ANÚNCIOS</h1>
+          <ul class="navbar-nav mr-auto">         
+            <button class="nav-item" type="Submit" @click.prevent="direcionaAnuncio">Crie seu anúncio</button>
+          </ul>
+        </div>
+       </div> 
+    </body>
+</template>        
 
-                <label for="title" class="text-white">Título</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Título" 
-                    name="title" 
-                    v-model="anuncioForm.title"
-                    required >
-            </div>
-
-            <div class="form-group">
-
-                <label for="author" class="text-white">Autor</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Autor" 
-                    name="author" 
-                    v-model="anuncioForm.author"
-                    required>
-            </div>
-
-            <div class="form-group">
-
-                <label for="phone" class="text-white">Contato</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Telefone de Contato" 
-                    name="phone" 
-                    v-model="anuncioForm.phone"
-                    required>
-            </div>  
-
-            <div class="form-group">
-
-                <label for="description" class="text-white">Descrição</label>
-                <textarea 
-                    name="description" 
-                    placeholder="Descrição" 
-                    class="form-control"
-                    v-model="anuncioForm.description">
-                </textarea>
-            </div>
-            
-            <br>
-            <div class="form-group">
-                <a href="/" class="btn btn-warning">Cancelar</a>
-                <button  @click="submitAnuncio" type="submit" class="btn btn-primary">Salvar</button>
-            </div>
-        </form>
-    </div>
-    </body> 
-</template>
 
 <script>
-
-import swal from 'sweetalert';
-import AnuncioService from '../services/AnuncioService';
-
-export default {
-  name: 'AnuncioComponent',
-  data() {
-    return {
-      anuncioForm: {
-        title: null,
-        author: null,
-        phone: null,
-        description: null,
-      },
-      isSubmitted: false,
-    };
-  },
-  methods: {
-    anuncioSubmitForm() {},
-
-    async submitAnuncio() {
-      try {
-        this.isSubmitted = true;  
-        await AnuncioService.registerNewAnuncio(this.anuncioForm);
-        this.$router.push('/');
-      } catch (error) {       
-        swal({
-          title: 'Oops!',
-          text: 'Erro ao realizar cadastro!',
-          icon: 'error',
-        });
-      }
-    },
-  },
-};  
+export default{
+        name: "AnuncioViver",             
+        methods:{
+                direcionaAnuncio () {
+                    this.$router.push({ name: 'cadastroAnuncio'})                    
+                },
+                
+                
+        },
+        
+    }    
 </script>
 
-
-
-
 <style scoped>
-    
-    #titulo {
+  #titulo {
       text-align: left;
       color: white;
       background: rgb(52, 52, 53);
-      margin-left:2%;
+      
       margin-right: 2%;
       margin-top: 20px;
       font-weight: bold;
-
-
+      margin: auto;
+      margin-left: 0;
     }
-</style>    
+
+  #nav-area {
+    background: rgb(52, 52, 53);
+    position:center;
+    border-bottom: 4x solid #111;
+    margin-left:2%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 95%;
+    
+}
+
+#nav a{
+    text-decoration: none;
+}
+
+.nav-item{
+    background-color: blue; 
+    border-radius: 12px;
+    padding: 8px 8px;
+    margin: 5px;
+    text-align: center; 
+    display:inline-block;
+    font-size: 12px, bold;
+    color: #fff;
+  }
+
+ .nav-item:hover{
+    background: #062486;
+    color: #fff;
+    text-decoration: none;
+ } 
+
+
+    .painel-corpo {
+    width: 100%;
+  }
+
+    .painel-titulo {
+    text-align: left;
+    margin: 0 0 15px 0;
+    padding: 10px;
+    text-transform: uppercase; 
+    font-size:20px;
+    font-weight: bold;
+  }
+
+.lado-lado {
+  background: white;
+  padding: 0 auto;
+  border: solid 2px grey;
+  display: inline-block;
+  margin: 40px;
+  box-shadow: 5px 5px 10px grey;
+  width: 300px;
+  height: 100%;
+  vertical-align: top;
+  text-align: left;
+
+}
+
+.lista{
+  list-style: none;
+  margin-left: 5%;
+}
+</style>

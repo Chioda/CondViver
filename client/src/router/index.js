@@ -7,6 +7,7 @@ import AreaComum from '../views/AreaComum.vue'
 import Agendamento from '../views/AgendamentoViver.vue'
 import FinancViver from '../views/FinancViver.vue'
 import AnunciosViver from '../views/AnunciosViver'
+import CadastrarAnuncios from '../views/CadastrarAnuncios'
 import AssembleiaViver from '../views/AssembleiaViver'
 import CheckInViver from '../views/CheckInViver'
 import AreaSindico from '../views/AreaSindico'
@@ -18,6 +19,14 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView    
+  },
+  {
+    path: '/anuncios/cadastro',
+    name: 'cadastroAnuncio',
+    component: CadastrarAnuncios,
+    meta: {
+      requireAuth: true,
+    },
   },
   {
     path: '/anuncios',
