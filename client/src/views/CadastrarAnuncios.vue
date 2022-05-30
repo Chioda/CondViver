@@ -62,6 +62,11 @@
             </div>
         </form>
     </div>
+    <div class="cotainer">
+        <h1>Last Anuncio</h1>
+        <hr>
+
+      </div>
     </body> 
 </template>
 
@@ -71,9 +76,9 @@ import swal from 'sweetalert';
 import AnuncioService from '../services/AnuncioService';
 
 export default {
-  name: 'AnuncioComponent',
+  name: 'CadastrarAnuncios',
   data() {
-    return {
+    return {      
       anuncioForm: {
         title: null,
         author: null,
@@ -83,7 +88,9 @@ export default {
       isSubmitted: false,
     };
   },
+
   methods: {
+     
     anuncioSubmitForm() {},
 
     async submitAnuncio() {

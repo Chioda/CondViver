@@ -8,22 +8,60 @@
           </ul>
         </div>
        </div> 
+        <div>
+    
+        <section>
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="list-group">
+                  <li class="list-group-item">Título: {{  }}</li>
+                  <li class="list-group-item">Author: {{  }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="cotainer">
+        <h1>Last Anuncio</h1>
+        <hr>
+        <p>{{ anuncios }}</p>
+      </div>
+
+
+
     </body>
 </template>        
 
 
 <script>
+//import AnuncioService from '../services/AnuncioService'
+import Api from '../services/Api'
 export default{
-        name: "AnuncioViver",             
-        methods:{
-                direcionaAnuncio () {
-                    this.$router.push({ name: 'cadastroAnuncio'})                    
-                },
-                
-                
+        name: "AnuncioViver",  
+        data() {
+          return {
+            anuncios: [],            
+          }
         },
-        
-    }    
+        mounted(){
+              this.getAnuncios();
+        },
+        methods: {      
+          async  getAnuncios(){
+             const response = await Api().get('/anuncio');
+            console.log(response);
+            if (response.status == 200){
+              this.anuncios = response.data
+            }
+          },               
+          direcionaAnuncio () {
+            this.$router.push({ name: 'cadastroAnuncio'})                    
+          },             
+        }       
+}
+
 </script>
 
 <style scoped>

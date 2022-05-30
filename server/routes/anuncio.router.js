@@ -10,6 +10,13 @@ const router = express.Router();
 //route that handles new post
 router.post('/anuncio', anuncioController.registerNewAnuncio);
 
+router.get('/anuncio', anuncioController.returnAnuncio);
+
+router.get('/anuncio/:id', anuncioController.returnAnuncioId);
+
+router.patch('/anuncio/:id', anuncioController.updateAnuncio);
+
+router.delete('/anuncio/:id', anuncioController.deleteAnuncio)
   
 
 // route that handles edit view

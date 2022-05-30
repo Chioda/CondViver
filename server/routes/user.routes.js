@@ -13,4 +13,6 @@ router.post('/login', userController.loginUser);
 // ==> Rota responsável por retornar o perfil/profile do 'User': (GET): localhost:3000/api/v1/userProfile
 router.get('/userProfile', auth, userController.returnUserProfile);
 
+router.get('/user', userController.returnUser);
+
 module.exports = router;

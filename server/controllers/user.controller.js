@@ -49,3 +49,13 @@ exports.loginUser = async (req, res) => {
 exports.returnUserProfile = async (req, res) => {
   await res.json(req.userData);
 };
+
+exports.returnUser = async (req, res) => {
+  try {
+    const user = await User.find()
+
+    res.status(200).json(user)
+  } catch (error) {
+    res.status(500).json({ erro: error })
+  }
+}; 

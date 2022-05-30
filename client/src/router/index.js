@@ -21,7 +21,7 @@ const routes = [
     component: HomeView    
   },
   {
-    path: '/anuncios/cadastro',
+    path: '/anunciosCadastro',
     name: 'cadastroAnuncio',
     component: CadastrarAnuncios,
     meta: {
