@@ -1,5 +1,5 @@
 <template>
-    <body class="body">      
+  <div>     
       <div class="main-container">
         <div id="nav-area">      
           <h1 id="titulo">ANÚNCIOS</h1>
@@ -8,30 +8,23 @@
           </ul>
         </div>
        </div> 
-        <div>
-    
-        <section>
-          <div class="container mt-5">
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="list-group">
-                  <li class="list-group-item">Título: {{  }}</li>
-                  <li class="list-group-item">Author: {{  }}</li>
-                </ul>
-              </div>
+   
+      <ul>
+        <li class="lista-destaques">
+          <div>
+            <div class="lado-lado" v-for="anuncio in anuncios"           
+          v-bind:key="anuncio._id">
+                        
+              <h2 class="painel-titulo">{{ anuncio.title }}
+                <p class="author">{{ anuncio.author }}</p>
+                <p class="phone">{{ anuncio.phone }}</p>
+                <p class="description">{{ anuncio.description }}</p>
+              </h2>                         
             </div>
           </div>
-        </section>
-      </div>
-      <div class="cotainer">
-        <h1>Last Anuncio</h1>
-        <hr>
-        <p>{{ anuncios }}</p>
-      </div>
-
-
-
-    </body>
+        </li>
+      </ul>
+  </div>     
 </template>        
 
 
