@@ -6,22 +6,6 @@ class AnuncioService {
 
     
 
-  /*static getreturnAnuncio() {
-    return new Promise( (resolve, reject) => {
-      try {
-        const res = Api.get('/anuncio');  
-        const data = res.data;
-        resolve(
-          data.map(anuncio => ({
-            ...anuncio,
-            createdAd: new Date(anuncio.createdAd)
-          }))
-        );
-      } catch (err) {
-        reject(err);
-      }
-    })
-  }*/
     /**
      * Método responsável por criar um novo Anuncio  (new Register Anuncio)
      * (POST): localhost:3000/api/v1/register
@@ -47,7 +31,12 @@ class AnuncioService {
         }); 
       }
     }
+ 
+
+  static async deleteAnuncio(id) {
+    return  Api().delete(`/anuncio/${id}`);
   }
+}
 
 
   export default AnuncioService;  

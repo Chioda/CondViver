@@ -13,8 +13,8 @@
         <li class="lista-destaques">
           <div>
             <div class="lado-lado" v-for="anuncio in anuncios"           
-          v-bind:key="anuncio._id">
-                        
+              v-bind:key="anuncio._id"  
+              v-on:dblclick="deleteAnuncio(anuncio._id)">                        
               <h2 class="painel-titulo">{{ anuncio.title }}
                 <p class="author">{{ anuncio.author }}</p>
                 <p class="phone">{{ anuncio.phone }}</p>
@@ -29,7 +29,8 @@
 
 
 <script>
-//import AnuncioService from '../services/AnuncioService'
+import AnuncioService from '../services/AnuncioService';
+import swal from 'sweetalert';
 import Api from '../services/Api'
 export default{
         name: "AnuncioViver",  
@@ -48,7 +49,27 @@ export default{
             if (response.status == 200){
               this.anuncios = response.data
             }
-          },               
+          },    
+          async deleteAnuncio(id){
+              const post = confirm("Deseja realmente excluir este Anúncio?");
+              if (post == null || post == "") {
+                  alert("Você desistiu de excluir o Anuncio!");
+              } else {
+                      await swal({
+                      title: 'Confirmado!',
+                      text: 'Anuncio EXCLUÍDO com sucesso!',
+                      icon: 'success',
+                      });
+                      await AnuncioService.deleteAnuncio(id);
+                      this.anuncios = Api().get('/anuncio');
+                        setTimeout(function() {
+                        window.location.reload(1);
+                      }, 1);
+              }
+              
+              
+              
+          },              
           direcionaAnuncio () {
             this.$router.push({ name: 'cadastroAnuncio'})                    
           },             
