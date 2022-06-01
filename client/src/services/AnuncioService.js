@@ -36,6 +36,12 @@ class AnuncioService {
   static async deleteAnuncio(id) {
     return  Api().delete(`/anuncio/${id}`);
   }
+  
+  static async upDateAnuncio(id) {
+    return  Api().patch(`/anuncio/${id}`);
+  }
+
+
 }
 
 

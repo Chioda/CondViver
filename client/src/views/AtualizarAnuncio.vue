@@ -1,13 +1,16 @@
+
+
+
 <template>
     <body class="body">      
       
         <div id="nav-area">      
-          <h1 id="titulo">CADASTRAR ANÚNCIOS</h1>
+          <h1 id="titulo">ATUALIZAR ANÚNCIOS</h1>
           
-          </div>
+        </div>
       <div class="main-container">
-
-        <form @submit.prevent="anuncioSubmitForm()">            
+        
+        <form @submit.prevent="anunciosUpDateForm()">            
             <div class="form-group">
 
                 <label for="title" class="text-white">Título</label>
@@ -16,7 +19,7 @@
                     class="form-control" 
                     placeholder="Título" 
                     name="title" 
-                    v-model="anuncioForm.title"
+                    v-model="anuncioUpDateForm.title"
                     required >
             </div>
 
@@ -28,7 +31,7 @@
                     class="form-control" 
                     placeholder="Autor" 
                     name="author" 
-                    v-model="anuncioForm.author"
+                    v-model="anuncioUpDateForm.author"
                     required>
             </div>
 
@@ -40,7 +43,7 @@
                     class="form-control" 
                     placeholder="Telefone de Contato" 
                     name="phone" 
-                    v-model="anuncioForm.phone"
+                    v-model="anuncioUpDateForm.phone"
                     required>
             </div>  
 
@@ -51,64 +54,55 @@
                     name="description" 
                     placeholder="Descrição" 
                     class="form-control"
-                    v-model="anuncioForm.description">
+                    v-model="anuncioUpDateForm.description">
                 </textarea>
             </div>
             
             <br>
             <div class="form-group">
                 <a href="/anuncios" class="btn btn-warning">Cancelar</a>
-                <button  @click="submitAnuncio" type="submit" class="btn btn-primary">Salvar</button>
+                <button  @click="upDateAnuncioForm" type="submit" class="btn btn-primary">Salvar</button>
             </div>
         </form>
     </div>
-    <div class="cotainer">
-        <h1>Last Anuncio</h1>
-        <hr>
 
-      </div>
     </body> 
 </template>
 
 <script>
 
-import swal from 'sweetalert';
-import AnuncioService from '../services/AnuncioService';
-
+//import swal from 'sweetalert';
+//import AnuncioService from '../services/AnuncioService';
+  import Api from '../services/Api'
 export default {
-  name: 'CadastrarAnuncios',
+  name: 'AtualizarAnuncios',
   data() {
     return {      
-      anuncioForm: {
+      anuncioUpDateForm: {
         title: null,
         author: null,
         phone: null,
         description: null,
-      }, 
-      id: this.$route.params.id,   
+      },
+      id: this.$route.params.id,
       isSubmitted: false,
     };
   },
+  mounted(){
+              this.getAnuncios();
+        },
+        methods: {      
+          async  getAnuncios(){
+             const response = await Api().get('/anuncio/${{ id }}');
+            console.log(response);
+            if (response.status == 200){
+              this.anuncios = response.data
+            }
+          },
+  
+}
+}
 
-  methods: {
-     
-    anuncioSubmitForm() {},
-
-    async submitAnuncio() {
-      try {
-        this.isSubmitted = true;          
-        await AnuncioService.registerNewAnuncio(this.anuncioForm);
-        this.$router.push('/anuncios');
-      } catch (error) {       
-        swal({
-          title: 'Oops!',
-          text: 'Erro ao realizar cadastro!',
-          icon: 'error',
-        });
-      }
-    },
-  },
-};  
 </script>
 
 
