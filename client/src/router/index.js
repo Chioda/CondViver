@@ -75,7 +75,7 @@ const routes = [
     },
   },
   {
-    path: '/agendamento',
+    path: '/agendamentos',
     name: 'agendamento',
     component: Agendamento,
     meta: {

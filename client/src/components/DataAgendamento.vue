@@ -1,8 +1,29 @@
 <template>
+<div>
+
   <div class="calendario">
     <label for="calendario">Selecione a data do agendamento:</label>
+    <div>      
     <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
+      <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="24" width="24" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <g transform="translate(0 -1028.4)">
+          <path d="m5 1032.4c-1.1046 0-2 0.9-2 2v14c0 1.1 0.8954 2 2 2h6 2 6c1.105 0 2-0.9 2-2v-14c0-1.1-0.895-2-2-2h-6-2-6z" fill="#bdc3c7"/>
+          <path d="m5 3c-1.1046 0-2 0.8954-2 2v14c0 1.105 0.8954 2 2 2h6 2 6c1.105 0 2-0.895 2-2v-14c0-1.1046-0.895-2-2-2h-6-2-6z" transform="translate(0 1028.4)" fill="#ecf0f1"/>
+          <path d="m5 3c-1.1046 0-2 0.8954-2 2v3 1h18v-1-3c0-1.1046-0.895-2-2-2h-6-2-6z" transform="translate(0 1028.4)" fill="#e74c3c"/>
+          <path d="m7 5.5a1.5 1.5 0 1 1 -3 0 1.5 1.5 0 1 1 3 0z" transform="translate(.5 1028.4)" fill="#c0392b"/>
+          <path d="m7 5.5a1.5 1.5 0 1 1 -3 0 1.5 1.5 0 1 1 3 0z" transform="translate(12.5 1028.4)" fill="#c0392b"/>
+          <g fill="#bdc3c7">
+          <path d="m5 1039.4v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2z"/>
+          <path d="m5 1042.4v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2z"/>
+          <path d="m5 1045.4v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2z"/>
+          </g>
+          <path d="m6 1c-0.5523 0-1 0.4477-1 1v3c0 0.5523 0.4477 1 1 1s1-0.4477 1-1v-3c0-0.5523-0.4477-1-1-1zm12 0c-0.552 0-1 0.4477-1 1v3c0 0.5523 0.448 1 1 1s1-0.4477 1-1v-3c0-0.5523-0.448-1-1-1z" transform="translate(0 1028.4)" fill="#95a5a6"/>
+          <path d="m6 1029.4c-0.5523 0-1 0.4-1 1v2h2v-2c0-0.6-0.4477-1-1-1zm12 0c-0.552 0-1 0.4-1 1v2h2v-2c0-0.6-0.448-1-1-1z" fill="#bdc3c7"/>
+        </g>
+      </svg>
+    </div>
   </div>
+</div>  
 </template>
 
 
@@ -13,37 +34,27 @@ import myDatepicker from 'vue-datepicker'
 
 export default {
   data () {
-    return {
-      
- 
-    
+    return {   
       startTime: {
         time: '' 
       },
-      endtime: {
-        time: ''
-      },
+ 
  
       option: {
         type: 'day',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        week: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+        month: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         format: 'DD-MM-YYYY',
         placeholder: 'Escolha uma data',
-        inputStyle: {
-          
-          
+        inputStyle: {           
           'padding': '5px',
-          
-          
-          'font-size': '16px',
-          
-          
-          
+          'width': '300px',          
+          'font-size': '16px',    
         },
         color: {
           header: '#ccc',
           headerText: '#f00'
+
         },
         buttons: {
           ok: 'Ok',
@@ -52,26 +63,10 @@ export default {
         overlayOpacity: 0.5, // 0.5 as default
         dismissible: true // as true as default
       },
-      timeoption: {
-        type: 'min',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        format: 'YYYY-MM-DD HH:mm'
-      },
-      multiOption: {
-        type: 'multi-day',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        format:"YYYY-MM-DD HH:mm"
-      },
+
       limit: [{
         type: 'weekday',
         available: [1, 2, 3, 4, 5]
-      },
-      {
-        type: 'fromto',
-        from: '2016-02-01',
-        to: '2016-02-20'
       }]
     }
   },
@@ -93,5 +88,10 @@ label {
     color: #222;;
     padding: 3px 10px;    
   }
+
+  .slot-icon {
+        height: 20px;
+        width: auto;
+    }
   
 </style>

@@ -10,6 +10,7 @@ const app = express();
 const index = require("./routes/index");
 const userRoutes = require("./routes/user.routes");
 const anuncioRouter = require('./routes/anuncio.router');
+const agendamentoRouter = require('./routes/agendamento.router')
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use(index);
 app.use("/api/v1/", userRoutes);
 
 app.use("/api/v1/", anuncioRouter);
+app.use("/api/v1/", agendamentoRouter);
 
 // Handle production
 if (process.env.NODE_ENV === 'production') {

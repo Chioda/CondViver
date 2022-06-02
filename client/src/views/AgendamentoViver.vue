@@ -2,12 +2,12 @@
   <body>    
     <h1 id="titulo">AGENDAMENTO</h1>
     <div class="main-container">      
-      <form id="agendamento-form" method="POST" @submit="createAgendamento">  
+      <form @submit.prevent="createAgendamento()">  
         <h2>REALIZE SEU AGENDAMENTO</h2>  
            
         <div class="input-container">
           <label for="local">Selecione o local:</label>
-          <select required name="local" id="local" v-model="local">
+          <select required name="local" id="local" v-model="agendamentoForm.local">
             <option value="">Selecione o local</option>
             <option value="academia">Academia</option>
             <option value="churrasqueira">Churrasqueira</option>
@@ -18,13 +18,18 @@
           <br>  
           <br>   
           <div class="input-container">     
-          <DataAgendamento />
+          <form>
+            <div>
+              <label for="diaa">Selecione a data do agendamento::</label>
+              <input type="date" id="diaa" name="diaa" v-model="agendamentoForm.dia">
+            </div>
+          </form>
           </div>
           
           <br>          
           <div class="input-container">          
             <label for="horario" >Selecione o horário:</label>
-            <select required name="horario" id="horario" v-model="horario" >
+            <select required name="horario" id="horario" v-model="agendamentoForm.horario" >
               <option value="">Selecione um horário</option>
               <option value="10:00">10:00</option>
               <option value="11:00">11:00</option>
@@ -44,8 +49,9 @@
         
         <br>
         <div class="input-container">
-          <input class="submit-btn" type="submit" value="Realizar Agendamento">
-        </div> 
+                <a href="/areacomum" class="btn btn-warning">Cancelar</a>
+                <button  @click="submitAgendamento" type="submit" class="btn btn-primary">Agendar</button>
+            </div> 
           
         </div>      
       </form>
@@ -56,16 +62,46 @@
 </template>
 
 <script>
-import DataAgendamento from '../components/DataAgendamento.vue';
+import swal from 'sweetalert';
+import AgendamentoService from '../services/AgendamentoService';
 
-export default {        
-    components: {
-    DataAgendamento
-    },          
-  }
- 
+export default {
 
+name: 'CadastrarAgendamento',
+  data() {
+    return {      
+      agendamentoForm: {
+        local: null,
+        dia: null,
+        horario: null,  
+        status: "Pendente",      
+      }, 
+        
+      isSubmitted: false,
+    };
+  },
+
+  methods: {
+     
+    createAgendamento() {},
+
+    async submitAgendamento() {
+      try {
+        this.isSubmitted = true;          
+        await AgendamentoService.registerNewAgendamento(this.agendamentoForm);
+        this.$router.push('/check-in');
+      } catch (error) {       
+        swal({
+          title: 'Oops!',
+          text: 'Erro ao realizar cadastro!',
+          icon: 'error',
+        });
+      }
+    },
+  },
+};  
 </script>
+
 
 <style scoped>
 
