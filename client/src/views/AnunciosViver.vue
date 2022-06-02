@@ -8,18 +8,26 @@
           </ul>
         </div>
        </div> 
-   
+
+      
       <ul>
         <li class="lista-destaques">
           <div>
             <div class="lado-lado" v-for="anuncio in anuncios"           
               v-bind:key="anuncio._id"  
               v-on:dblclick="deleteAnuncio(anuncio._id)">                        
-              <h2 class="painel-titulo">{{ anuncio.title }}
-                <p class="author">{{ anuncio.author }}</p>
-                <p class="phone">{{ anuncio.phone }}</p>
-                <p class="description">{{ anuncio.description }}</p>
-              </h2>  
+              <div class="painel">
+              <h2 class="painel-titulo">{{anuncio.title}}</h2>
+              <div class="painel-corpo">
+                  <p class="description"><b class="bold">Descrição:</b> <br>{{ anuncio.description }}</p> 
+                  <p class="contact"><b>Contato:</b>
+                  <br>
+                  {{ anuncio.author }}
+                  <br>
+                  {{ anuncio.phone }}</p>
+                     
+              </div>
+            
             <router-link :to="{ name: 'atualizarAnuncio' , params: { id: anuncio._id }  }">     
               <button type="button"
                       class="btn btn-light mr-1"  
@@ -38,7 +46,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                         </svg>
-              </button>                   
+              </button> 
+              </div>                  
             </div>
           </div>
         </li>
@@ -168,10 +177,10 @@ export default{
   height: 100%;
   vertical-align: top;
   text-align: left;
-
+  list-style: none;
 }
 
-.lista{
+.lista-destaques{
   list-style: none;
   margin-left: 5%;
 }
@@ -193,4 +202,51 @@ export default{
     text-decoration: none;
   }
 
+   .titulo {
+    text-align: center;
+  }
+
+  .corpo {
+    font-family: Helvetica, sans-serif;
+    margin: 0 auto;
+    width: 96%;
+  }
+
+  .lista-fotos {
+    list-style: none;
+  }
+
+  .lista-fotos .lista-fotos-item {
+    display: inline-block;
+  }
+
+  .imagem-responsiva {
+    width: 100%;
+  }
+
+  /* estilo do painel */ 
+
+   .painel {
+    padding: 0 auto;
+    border: solid 2px grey;
+    display: inline-block;
+    list-style: none;
+    box-shadow: 5px 5px 10px grey;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .painel .painel-titulo {
+    text-align: center;
+    border: solid 2px;
+    background: lightblue;
+    margin: 0 0 15px 0;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+  .bold {
+    font-size: bold;
+  }
 </style>

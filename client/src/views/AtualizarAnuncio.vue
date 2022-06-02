@@ -1,124 +1,118 @@
-
-
-
 <template>
-    <body class="body">      
-      
-        <div id="nav-area">      
-          <h1 id="titulo">ATUALIZAR ANÚNCIOS</h1>
-          
-        </div>
-      <div class="main-container">
+
+  <div>
+    <h1 class="centralizado">Cadastro</h1>
+    <h2 class="centralizado">{{ anuncioForm.title }}</h2>
+
+    <h2 v-if="anuncioForm._id" class="centralizado">Alterando</h2>
+    <h2 v-else class="centralizado">Incluindo</h2>
+    
+    <form @submit.prevent="anuncioAtualizaForm()">
+
+      <div class="controle">
+        <label for="titulo">TÍTULO</label>
+        <input id="titulo" autocomplete="off" v-model.lazy="anuncioForm.title">
+      </div>
+
+      <div class="controle">
+        <label for="author">AUTOR</label>
+        <input id="author" autocomplete="off" v-model.lazy="anuncioForm.author">
         
-        <form @submit.prevent="anunciosUpDateForm()">            
-            <div class="form-group">
+      </div>
 
-                <label for="title" class="text-white">Título</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Título" 
-                    name="title" 
-                    v-model="anuncioUpDateForm.title"
-                    required >
-            </div>
+      <div class="controle">
+        <label for="phone">CONTATO</label>
+        <textarea id="phone" autocomplete="off" v-model="anuncioForm.phone">
+        </textarea>
+      </div>
 
-            <div class="form-group">
+      <div class="controle">
+        <label for="description">DESCRIÇÃO</label>
+        <textarea id="description" autocomplete="off" v-model="anuncioForm.description">
+        </textarea>
+      </div>
 
-                <label for="author" class="text-white">Autor</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Autor" 
-                    name="author" 
-                    v-model="anuncioUpDateForm.author"
-                    required>
-            </div>
-
-            <div class="form-group">
-
-                <label for="phone" class="text-white">Contato</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Telefone de Contato" 
-                    name="phone" 
-                    v-model="anuncioUpDateForm.phone"
-                    required>
-            </div>  
-
-            <div class="form-group">
-
-                <label for="description" class="text-white">Descrição</label>
-                <textarea 
-                    name="description" 
-                    placeholder="Descrição" 
-                    class="form-control"
-                    v-model="anuncioUpDateForm.description">
-                </textarea>
-            </div>
-            
-            <br>
-            <div class="form-group">
+      <div class="centralizado">
+        <div class="form-group">
                 <a href="/anuncios" class="btn btn-warning">Cancelar</a>
-                <button  @click="upDateAnuncioForm" type="submit" class="btn btn-primary">Salvar</button>
+                <button  @click="anuncioAtualizaForm" type="submit" class="btn btn-primary">Salvar</button>
             </div>
-        </form>
-    </div>
+      </div>
 
-    </body> 
+    </form>
+  </div>
 </template>
 
 <script>
 
-//import swal from 'sweetalert';
-//import AnuncioService from '../services/AnuncioService';
-  import Api from '../services/Api'
+import AnuncioService from '../services/AnuncioService';
+
+
+
 export default {
-  name: 'AtualizarAnuncios',
+
   data() {
-    return {      
-      anuncioUpDateForm: {
-        title: null,
-        author: null,
-        phone: null,
-        description: null,
-      },
-      id: this.$route.params.id,
-      isSubmitted: false,
-    };
+
+      return {
+
+        anuncioForm: {
+          title: null,
+          author: null,
+          phone: null,
+          description: null,
+        }, 
+          id: this.$route.params.id
+      }
   },
-  mounted(){
-              this.getAnuncios();
-        },
-        methods: {      
-          async  getAnuncios(){
-             const response = await Api().get('/anuncio/${{ id }}');
-            console.log(response);
-            if (response.status == 200){
-              this.anuncios = response.data
-            }
-          },
-  
-}
+
+  methods: {
+
+      anuncioAtualizaForm() {
+
+          this.service
+            .upDateAnuncio(this.anuncioForm)
+            .then(() => {
+              this.$router.push('/anuncios');
+              //this.foto = new Foto();
+            }, err => console.log(err));
+      }
+  },
+
+  created() {
+
+      this.service = new AnuncioService(this.$resource);
+
+      if(this.id) {
+        this.service
+          .busca(this.id)
+          .then(anuncio => this.anuncio = anuncio);
+      }
+  }
 }
 
 </script>
-
-
-
-
 <style scoped>
-    
-    #titulo {
-      text-align: left;
-      color: white;
-      background: rgb(52, 52, 53);
-      margin-left:2%;
-      margin-right: 2%;
-      margin-top: 20px;
-      font-weight: bold;
+
+  .centralizado {
+    text-align: center;
+  }
+  .controle {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+
+  }
+  .controle label {
+    display: block;
+    font-weight: bold;
   }
 
+ .controle label + input, .controle textarea {
+    width: 100%;
+    font-size: inherit;
+    border-radius: 5px
+  }
 
-</style>    
+  .centralizado {
+    text-align: center;
+  }
+</style>

@@ -30,21 +30,10 @@ const routes = [
     },
   },
   {
-  path: '/anunciosCadastro/:id',
+  path: '/anunciosAtualizar/:id',
   name: 'atualizarAnuncio',
-  component: CadastrarAnuncios,
-  meta: {
-    requireAuth: true,
-  },
-},
-
-  {
-    path: '/anunciosAtualizar',
-    name: 'atualizaAnuncio',
-    component: AtualizarAnuncio,
-
-  },
-
+  component: AtualizarAnuncio,
+  },  
   {
     path: '/anuncios',
     name: 'anuncios',

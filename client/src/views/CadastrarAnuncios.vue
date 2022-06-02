@@ -62,11 +62,10 @@
             </div>
         </form>
     </div>
-    <div class="cotainer">
-        <h1>Last Anuncio</h1>
+    
         <hr>
 
-      </div>
+      
     </body> 
 </template>
 
@@ -126,5 +125,21 @@ export default {
       font-weight: bold;
   }
 
-
+  .main-container{
+    background-color: grey;   
+    border-radius: 12px;
+    padding: 1em;
+    position: center;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    margin-left:25%;
+    
+  }
+  input::placeholder {
+  color: rgb(228, 225, 225);
+}
+  textarea::placeholder {
+  color: rgb(228, 225, 225);
+}
 </style>    
