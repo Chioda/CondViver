@@ -153,10 +153,10 @@ export default {
     background-color: grey;   
     border-radius: 12px;
     padding: 1em;
-    width: 40%;
+    width: 30%;
     margin-bottom: 30px;
     margin-top: 30px;
-    margin-left: 30%;
+    margin-left: 35%;
   }
 
   h1{

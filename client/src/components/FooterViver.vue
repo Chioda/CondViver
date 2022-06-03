@@ -5,7 +5,7 @@
 				<a href="https://pt-br.facebook.com/"><i class="fa fa-facebook"><img src="../assets/facebook_108044.png" alt="face" width="35px" height="35px"></i></a>
 				<a href="https://www.instagram.com/"><i class="fa fa-instagran"><img src="../assets/instagram_108043.png" alt="insta" width="35px" height="35px"></i></a>
 				<a href="https://www.youtube.com/"><i class="fa fa-youtube"></i><img src="../assets/youtube_108041.png" alt="youtube" width="35px" height="35px"></a>
-				<a href="https://github.com/Chioda/viver"><i class="fa fa-github"></i><img src="../assets/circle-github_icon-icons.com_66826.png" alt="face" width="35px" height="35px"></a>
+				<a href="https://github.com/Chioda/CondViver"><i class="fa fa-github"></i><img src="../assets/circle-github_icon-icons.com_66826.png" alt="face" width="35px" height="35px"></a>
 			</div>           
 			<div class="footer-left">
 				<p class="footer-links"><a class="link-1" href="/">Home</a></p>
