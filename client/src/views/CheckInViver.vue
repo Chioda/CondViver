@@ -28,7 +28,7 @@
               <td>{{ agendamento.dia  }}</td>
               <td>{{ agendamento.horario }}</td>
               <td class="status">{{ agendamento.status  }}</td>
-
+              
             </tr>
           </tbody>
         </table>
@@ -130,7 +130,7 @@ export default {
 
 
 .projetos {
-  padding: 1.25rem;
+  padding: 2rem;
 }
 
 .status {

@@ -5,9 +5,14 @@ const jwt = require('jsonwebtoken');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  name: { type: String, maxlength: 50, required: true },
-  email: { type: String, maxlength: 30, required: true },
+  name: { type: String, maxlength: 50, required: true },  
+  cpf: { type: String, maxlength: 15 },
+  telefone: { type: String, maxlength: 15 },
+  dataNasc: { type: Date, },
+  apto: { type: String, maxlength: 10 },
+  email: { type: String, maxlength: 30,  required: true},  
   password: { type: String, required: true },
+  inadimplente: { type: Boolean },
   tokens: [
     {
       token: { type: String, required: true },

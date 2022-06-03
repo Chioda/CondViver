@@ -1,5 +1,5 @@
 <template>
-  <body>   
+  <div>   
     <div class="main-container">
         <h1>EFETUE SEU CADASTRO</h1>
         <form @submit.prevent="registerSubmitUserForm()">
@@ -12,6 +12,55 @@
                   class="form-control mb-2"
                   placeholder="Inclua seu Nome"
                   v-model="registerForm.name"                  
+                />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="nome">CPF  </label>
+                <input
+                  type="text"
+                  id="cpf"
+                  name="cpf"
+                  class="form-control mb-2"
+                  format="###.###.###-##"
+                  placeholder="Inclua seu CPF"
+                  v-model="registerForm.cpf"                  
+                />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="nome">Telefone  </label>
+                <input
+                  type="text"
+                  id="telefone"
+                  name="telefone"
+                  class="form-control mb-2"
+                  placeholder="Inclua seu Telefone"
+                  v-model="registerForm.telefone"                  
+                />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="nome">Data Nascimento  </label>
+                <input
+                  type="date"
+                  id="dataNasc"
+                  name="dataNasc"
+                  class="form-control mb-2"
+                  placeholder="Inclua sua Data de Nascimento"
+                  v-model="registerForm.dataNasc"                  
+                />
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="nome">Apartamento  </label>
+                <input
+                  type="text"
+                  id="apto"
+                  name="apto"
+                  class="form-control mb-2"
+                  placeholder="Inclua seu Apartamento"
+                  v-model="registerForm.apto"                  
                 />
             </div>
             <br>
@@ -54,7 +103,7 @@
             </center>
         </form>
     </div>
-  </body> 
+  </div>
 </template> 
 
 <script>
@@ -67,8 +116,13 @@ export default {
     return {
       registerForm: {
         name: null,
+        cpf: null,
+        telefone: null,
+        dataNasc: null,
+        apto: null,
         email: null,
         password: null,
+        inadimplente: "false",
       },
       isSubmitted: false,
     };
@@ -94,20 +148,15 @@ export default {
 </script>
 
 <style scoped>
-  body {
-    background-image: url("../assets/Fundo.jpeg");
-    height: 600px;
-  }
 
   .main-container {     
     background-color: grey;   
     border-radius: 12px;
     padding: 1em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    width: 40%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 30%;
   }
 
   h1{
