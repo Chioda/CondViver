@@ -1,29 +1,14 @@
 <template>
-  <body>    
+<body>
+ 
     <h1 id="titulo">CHECK-IN</h1>
 
-    <div>
-    
-    <section>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="list-group">
-              <li class="list-group-item">Name: {{  }}</li>
-              <li class="list-group-item">E-mail: {{  }}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <div class="lado-lado" v-for="agendamento in agendamentos"           
-              v-bind:key="agendamento._id">    
+   
       <section class="projetos">
         
         <table class="table is-fullwidth">
-          <thead>
-            <tr>
+          <tbody>
+            <tr class="tabela">
               <th></th>
               <th>Nome</th>
               <th>Apto</th>
@@ -32,23 +17,23 @@
               <th>Horário</th>
               <th>Status</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr >
+           
+          
+            <tr class="lado-lado" v-for="agendamento in agendamentos"           
+              v-bind:key="agendamento._id" >
               <td><input type="checkbox" name="" id=""></td>  
               <td>{{  }}</td>
               <td>{{  }}</td>
               <td>{{ agendamento.local }}</td>
               <td>{{ agendamento.dia  }}</td>
               <td>{{ agendamento.horario }}</td>
-              <td>{{ agendamento.status  }}</td>
+              <td class="status">{{ agendamento.status  }}</td>
 
             </tr>
           </tbody>
         </table>
       </section>
-    </div>
-  </body>
+</body>
 </template>
 
 <script >
@@ -136,7 +121,25 @@ export default {
       font-weight: bold;
   }
 
+ .tabela {
+   background: rgb(196, 195, 195);
+   text-decoration: underline;
+   font-size: 25px; 
+   border: black;
+ }
+
+
 .projetos {
   padding: 1.25rem;
 }
+
+.status {
+  color:darkorange;
+  font-weight: bold;  
+}
+
+.lado-lado {
+  background: white;
+}
+
 </style>

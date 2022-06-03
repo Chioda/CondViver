@@ -122,6 +122,7 @@ export default{
     background: rgb(52, 52, 53);
     position:center;
     border-bottom: 4x solid #111;
+    margin-top: 20px;
     margin-left:2%;
     margin-right: 2%;
     display: flex;

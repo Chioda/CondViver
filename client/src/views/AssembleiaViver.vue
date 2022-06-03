@@ -1,8 +1,15 @@
 <template>
-    <body> 
+  <body>
+<div class="main">
+  
+        
+    
     <h1 id="titulo">ASSEMBLÉIA ONLINE</h1>      
     <div class="main-container">
-        <h2>LINK PARA A ASSEMLÉIA ONLINE</h2>        
+      <div class="título">
+        <h2>LINK PARA A ASSEMLÉIA ONLINE</h2>
+      </div>
+      <div class="zoom">          
         <br>
         <p>
             <center>
@@ -17,9 +24,12 @@
                 <br>
                 ID da Reunião: 123 456
             </center>
-        </p>  
+        </p> 
+       </div>  
     </div>
-  </body> 
+     
+  </div> 
+  </body>
 </template> 
 
 
@@ -45,7 +55,7 @@
     border-radius: 12px;
     padding: 1em;
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
