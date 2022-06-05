@@ -10,8 +10,7 @@
           <tbody>
             <tr class="tabela">
               <th></th>
-              <th>Nome</th>
-              <th>Apto</th>
+              <th>Nome</th>              
               <th>Local</th>
               <th>Data</th>
               <th>Horário</th>
@@ -22,8 +21,7 @@
             <tr class="lado-lado" v-for="agendamento in agendamentos"           
               v-bind:key="agendamento._id" >
               <td><input type="checkbox" name="" id=""></td>  
-              <td>{{  }}</td>
-              <td>{{  }}</td>
+              <td>{{ agendamento.usuario }}</td>              
               <td>{{ agendamento.local }}</td>
               <td>{{ agendamento.dia  }}</td>
               <td>{{ agendamento.horario }}</td>

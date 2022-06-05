@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const agendamentoSchema = new Schema({
+  usuario: { type: String, maxlength: 50, required: true },
   local: { type: String, maxlength: 50, required: true },
   dia: { type: String, maxlength: 10, required: true },
   horario: { type: String, maxlength: 15, required: true },

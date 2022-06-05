@@ -6,7 +6,19 @@
         <li class="lista-destaques">    
               
               <form class="lado-lado" id="agendamento-form" @submit.prevent="createAgendamento()">  
-                <h2>REALIZE SEU AGENDAMENTO</h2>                  
+                <h2>REALIZE SEU AGENDAMENTO</h2>  
+                
+                <div class="input-container">           
+                 
+                  <label for="name">Nome do Condômino:
+                    <br>
+                    <p class="name-user">{{ agendamentoForm.usuario }}</p>
+                  </label>
+                     
+                   
+                  
+                  </div>
+
                 <div class="input-container">
                   <label for="local">Selecione o local:</label>
                   <select required name="local" id="local" v-model="agendamentoForm.local">
@@ -69,24 +81,35 @@
 <script>
 import swal from 'sweetalert';
 import AgendamentoService from '../services/AgendamentoService';
-
+import VueJwtDecode from 'vue-jwt-decode';
 export default {
 
 name: 'CadastrarAgendamento',
   data() {
     return {      
       agendamentoForm: {
+        usuario: null,        
         local: null,
         dia: null,
         horario: null,  
         status: "Pendente",      
       }, 
+      user: {},
         
       isSubmitted: false,
     };
   },
 
   methods: {
+    getUser() {
+      const token = localStorage.getItem('jwt');
+      const tokenDecoded = VueJwtDecode.decode(token);
+      this.user = tokenDecoded;
+      this.agendamentoForm.usuario = this.user.name;
+      console.log(tokenDecoded);
+      
+      
+    },
      
     createAgendamento() {},
 
@@ -95,6 +118,7 @@ name: 'CadastrarAgendamento',
         this.isSubmitted = true;          
         await AgendamentoService.registerNewAgendamento(this.agendamentoForm);
         this.$router.push('/check-in');
+        
       } catch (error) {       
         swal({
           title: 'Oops!',
@@ -104,6 +128,10 @@ name: 'CadastrarAgendamento',
       }
     },
   },
+  created() {
+    this.getUser();
+    
+    },
 };  
 </script>
 
@@ -119,6 +147,14 @@ name: 'CadastrarAgendamento',
       margin-top: 20px;
       font-weight: bold;
   }
+
+.name-user {
+  background: rgb(83, 83, 83);
+  font-weight: bold;
+  padding: 5px 10px;
+  color: white;
+}
+
 .lista {
       list-style: none  ;
 }
