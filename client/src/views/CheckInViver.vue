@@ -15,6 +15,8 @@
               <th>Data</th>
               <th>Horário</th>
               <th>Status</th>
+              <th></th>
+              <th></th>
             </tr>
            
           
@@ -26,6 +28,12 @@
               <td>{{ agendamento.dia  }}</td>
               <td>{{ agendamento.horario }}</td>
               <td class="status">{{ agendamento.status  }}</td>
+              <td><button type="button" class="btn btn-danger" @click="deleteAgendamento(agendamento._id)">
+                Remover
+              </button></td>
+              <td><button type="button" class="btn btn-success" @click="submitUpDateStatus(agendamento._id)">
+                Check-In
+              </button></td>
               
             </tr>
           </tbody>
@@ -59,7 +67,7 @@ export default{
             }
           },    
           async deleteAgendamento(id){
-              const post = confirm("Deseja realmente excluir este Anúncio?");
+              const post = confirm("Deseja realmente excluir este Agendamento?");
               if (post == null || post == "") {
                   alert("Você desistiu de excluir o Agendamento!");
               } else {
@@ -74,8 +82,28 @@ export default{
                         window.location.reload(1);
                       }, 1);
               }               
-          },   
-                    
+          },         
+
+          async submitUpDateStatus(id) {
+            try {
+              this.isSubmitted = true; 
+              const option = "Realizado";
+              const dataJson = JSON.stringify({status: option});         
+              const req = await Api().patch(`/agendamento/${id}`, {
+                
+                body: dataJson
+              });
+              const res = await req.json()
+              console.log(res)
+              
+            } catch (error) {       
+              swal({
+                title: 'Oops!',
+                text: 'Erro ao realizar Check-In!',
+                icon: 'error',
+              });
+            }
+          },          
                       
         }       
 }

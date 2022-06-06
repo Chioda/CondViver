@@ -36,8 +36,13 @@ class AgendamentoService {
     return  Api().delete(`/agendamento/${id}`);
   }
   
-  static async upDateAgendamento(id) {
-    return  Api().patch(`/agendamento/${id}`);
+  static async returnAgendamentoId(id) {
+    return  Api().find(`/agendamento/${id}`);
+  }
+
+  returnAgendamentoId
+  static async upDateAgendamento(id, agendamentos) {
+    return  Api().patch(`/agendamento/${id}`, agendamentos);
   }
 
 

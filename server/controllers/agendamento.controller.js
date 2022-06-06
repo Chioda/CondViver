@@ -42,13 +42,14 @@ exports.registerNewAgendamento = async (req, res) => {
   exports.updateAgendamento = async (req, res) => {
   const id = req.params.id
 
-  const { title, author, phone, description } = req.body
+  const { usuario, local, dia, horario, status } = req.body
 
   const agendamento = {
-    title,
-    author,
-    phone,
-    description,
+    usuario,
+    local, 
+    dia, 
+    horario,
+    status,
   }
 
   try {
