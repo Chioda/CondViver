@@ -27,11 +27,13 @@
               <td>{{ agendamento.local }}</td>
               <td>{{ agendamento.dia  }}</td>
               <td>{{ agendamento.horario }}</td>
-              <td class="status">{{ agendamento.status  }}</td>
+              
+              <td class="status-verde" v-if="agendamento.checkIn == 'Realizado'">{{ agendamento.checkIn  }}</td>
+              <td class="status-laranja" v-else>{{ agendamento.checkIn  }}</td>
               <td><button type="button" class="btn btn-danger" @click="deleteAgendamento(agendamento._id)">
                 Remover
               </button></td>
-              <td><button type="button" class="btn btn-success" @click="submitUpDateStatus(agendamento._id)">
+              <td><button type="button" class="btn btn-success" @click="submitUpDateStatus(agendamento)">
                 Check-In
               </button></td>
               
@@ -84,23 +86,19 @@ export default{
               }               
           },         
 
-          async submitUpDateStatus(id) {
+          async submitUpDateStatus(agendamento) {
             try {
-              this.isSubmitted = true; 
-              const option = "Realizado";
-              const dataJson = JSON.stringify({status: option});         
-              const req = await Api().patch(`/agendamento/${id}`, {
-                
-                body: dataJson
-              });
+              this.agendamento = agendamento             
+              this.agendamento.checkIn = "Realizado";         
+              const req = await Api().patch(`/agendamento/${agendamento._id}`, this.agendamento);
               const res = await req.json()
               console.log(res)
               
             } catch (error) {       
               swal({
-                title: 'Oops!',
-                text: 'Erro ao realizar Check-In!',
-                icon: 'error',
+                title: 'Confirmado!',
+                text: 'Check-In REALIZADO com sucesso!',
+                icon: 'success',
               });
             }
           },          
@@ -159,8 +157,13 @@ export default {
   padding: 2rem;
 }
 
-.status {
+.status-laranja {
   color:darkorange;
+  font-weight: bold;  
+}
+
+.status-verde {
+  color:rgb(7, 207, 7);
   font-weight: bold;  
 }
 

@@ -92,7 +92,7 @@ name: 'CadastrarAgendamento',
         local: null,
         dia: null,
         horario: null,  
-        status: "Pendente",      
+        checkIn: "Pendente",      
       }, 
       user: {},
         
