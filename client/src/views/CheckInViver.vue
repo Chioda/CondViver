@@ -8,8 +8,7 @@
         
         <table class="table is-fullwidth">
           <tbody>
-            <tr class="tabela">
-              <th></th>
+            <tr class="tabela">              
               <th>Nome</th>              
               <th>Local</th>
               <th>Data</th>
@@ -19,24 +18,25 @@
               <th></th>
             </tr>
            
-          
             <tr class="lado-lado" v-for="agendamento in agendamentos"           
-              v-bind:key="agendamento._id" >
-              <td><input type="checkbox" name="" id=""></td>  
-              <td>{{ agendamento.usuario }}</td>              
-              <td>{{ agendamento.local }}</td>
-              <td>{{ agendamento.dia  }}</td>
-              <td>{{ agendamento.horario }}</td>
-              
-              <td class="status-verde" v-if="agendamento.checkIn == 'Realizado'">{{ agendamento.checkIn  }}</td>
-              <td class="status-laranja" v-else>{{ agendamento.checkIn  }}</td>
-              <td><button type="button" class="btn btn-danger" @click="deleteAgendamento(agendamento._id)">
-                Remover
-              </button></td>
-              <td><button type="button" class="btn btn-success" @click="submitUpDateStatus(agendamento)">
-                Check-In
-              </button></td>
-              
+              v-bind:key="agendamento._id" v-show="agendamento.usuario == user.name" >                  
+                <td>{{ agendamento.usuario }}</td>              
+                <td>{{ agendamento.local }}</td>
+                <td>{{ agendamento.dia  }}</td>
+                <td>{{ agendamento.horario }}</td>
+                
+                <td class="status-verde" v-if="agendamento.checkIn == 'Realizado'">{{ agendamento.checkIn  }}</td>
+                <td class="status-laranja" v-else>{{ agendamento.checkIn  }}</td>
+                <td><button type="button" class="btn btn-danger" @click="deleteAgendamento(agendamento._id)">
+                  Remover
+                </button></td>
+                <td><button type="button" class="btn btn-success" v-if="agendamento.checkIn == 'Realizado'"  @click="submitUpDateStatus(agendamento)" disabled >
+                  Check-In
+                </button>
+                <button type="button" class="btn btn-success" v-else @click="submitUpDateStatus(agendamento)">
+                  Check-In
+                </button></td>
+                
             </tr>
           </tbody>
         </table>
@@ -49,15 +49,19 @@
 import AgendamentoService from '../services/AgendamentoService';
 import swal from 'sweetalert';
 import Api from '../services/Api'
+import VueJwtDecode from 'vue-jwt-decode';
+
 export default{
         name: "CheckInViver",  
         data() {
           return {
-            agendamentos: [],            
+            agendamentos: [], 
+            user: {},           
           }
         },
         mounted(){
               this.getAgendamentos();
+              this.getUser();
         },
         methods: { 
                 
@@ -67,7 +71,16 @@ export default{
             if (response.status == 200){
               this.agendamentos = response.data
             }
-          },    
+          },   
+          
+          getUser() {
+            const token = localStorage.getItem('jwt');
+            const tokenDecoded = VueJwtDecode.decode(token);
+            this.user = tokenDecoded;            
+            console.log(tokenDecoded);
+            
+            
+          },
           async deleteAgendamento(id){
               const post = confirm("Deseja realmente excluir este Agendamento?");
               if (post == null || post == "") {
