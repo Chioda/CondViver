@@ -23,8 +23,7 @@
                 <router-link class="router" :to="{ name: 'areacomum' }">
                   Saiba mais...
                 </router-link>
-              </h2>
-              
+              </h2>              
               <span>02 de Janeiro de 2022</span>   
             </div>
             <div class="lado-lado">
@@ -45,19 +44,8 @@
 </template>
 
 <script>
- // import Api from '../services/Api'
-
-
   export default {
     name: 'HomeView',
-    
- /*   mounted () {
-      Api.get('/')
-        .then(response => this.home = response.data)
-        .catch(erro => console.log(erro))
-        
-  },*/
-    
   }
 </script>
 
@@ -83,32 +71,31 @@
     .painel-corpo {
     width: 100%;
     height: 170px;
-  }
+    }
 
   .lista-destaques{
     margin-left: 5%;
     list-style: none  ;
   }
 
-    .painel-titulo {
+  .painel-titulo {
     text-align: left;
     margin: 0 0 15px 0;
     padding: 10px; 
     font-size:medium;
   }
 
-.lado-lado {
-  background: white;
-  padding: 0 auto;
-  border: solid 2px grey;
-  display: inline-block;
-  margin: 40px;
-  box-shadow: 5px 5px 10px grey;
-  width: 300px;
-  height: 100%;
-  vertical-align: top;
-  text-align: left;
-}
-
+  .lado-lado {
+    background: white;
+    padding: 0 auto;
+    border: solid 2px grey;
+    display: inline-block;
+    margin: 40px;
+    box-shadow: 5px 5px 10px grey;
+    width: 300px;
+    height: 100%;
+    vertical-align: top;
+    text-align: left;
+  }
 
 </style>

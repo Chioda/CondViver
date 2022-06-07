@@ -1,19 +1,14 @@
 const User = require("../models/user.model");
 
-// ==> Usando conceito de Async e Await
-
-// ==> Método responsável por Criar um novo 'User':
 exports.registerNewUser = async (req, res) => {
   try {
-    // => Antes vamos fazer uma verificação se o usuário já possui algum e-mail já cadastrado:
-    const isUser = await User.find({ email: req.body.email });
+     const isUser = await User.find({ email: req.body.email });
     console.log(isUser);
     if (isUser.length >= 1) {
       return res
         .status(409)
         .json({ message: "Atenção! Este e-mail já possui registro!" });
     }
-
     const newUser = new User(req.body);
     const user = await newUser.save();
     const token = await newUser.generateAuthToken(); // ==> Aqui chamaremos o método que criamos no model
@@ -25,7 +20,6 @@ exports.registerNewUser = async (req, res) => {
   }
 };
 
-// ==> Método responsável por realizar um novo login 'User':
 exports.loginUser = async (req, res) => {
   try {
     const { email } = req.body;
@@ -45,7 +39,6 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-// ==> Método responsável por retornar um determinado 'User'
 exports.returnUserProfile = async (req, res) => {
   await res.json(req.userData);
 };
@@ -53,7 +46,6 @@ exports.returnUserProfile = async (req, res) => {
 exports.returnUser = async (req, res) => {
   try {
     const user = await User.find()
-
     res.status(200).json(user)
   } catch (error) {
     res.status(500).json({ erro: error })

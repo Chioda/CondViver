@@ -1,17 +1,14 @@
 <template>
   <body>
-<div class="main">
-  
-        
-    
-    <h1 id="titulo">ASSEMBLÉIA ONLINE</h1>      
-    <div class="main-container">
-      <div class="título">
-        <h2>LINK PARA A ASSEMLÉIA ONLINE</h2>
-      </div>
-      <div class="zoom">          
-        <br>
-        <p>
+    <div class="main">
+      <h1 id="titulo">ASSEMBLÉIA ONLINE</h1>      
+      <div class="main-container">
+        <div class="título">
+          <h2>LINK PARA A ASSEMLÉIA ONLINE</h2>
+        </div>
+        <div class="zoom">          
+          <br>
+          <p>
             <center>
                 <img src="../assets/Logo_Zoom.jpg" width="90"  height="50">            
                 <br>
@@ -24,11 +21,10 @@
                 <br>
                 ID da Reunião: 123 456
             </center>
-        </p> 
-       </div>  
-    </div>
-     
-  </div> 
+          </p> 
+        </div>  
+      </div>     
+    </div> 
   </body>
 </template> 
 

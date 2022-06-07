@@ -2,12 +2,6 @@ const express = require('express');
 const agendamentoController = require('../controllers/agendamento.controller');
 const router = express.Router();
 
-
-
-
-
-
-//route that handles new post
 router.post('/agendamento', agendamentoController.registerNewAgendamento);
 
 router.get('/agendamento', agendamentoController.returnAgendamento);

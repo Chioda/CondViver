@@ -17,7 +17,6 @@ exports.registerNewAnuncio = async (req, res) => {
   exports.returnAnuncio = async (req, res) => {
     try {
       const anuncio = await Anuncio.find()
-
       res.status(200).json(anuncio)
     } catch (error) {
       res.status(500).json({ erro: error })
@@ -41,9 +40,7 @@ exports.registerNewAnuncio = async (req, res) => {
 
   exports.updateAnuncio = async (req, res) => {
   const id = req.params.id
-
   const { title, author, phone, description } = req.body
-
   const anuncio = {
     title,
     author,
@@ -53,32 +50,25 @@ exports.registerNewAnuncio = async (req, res) => {
 
   try {
     const updatedAnuncio = await Anuncio.updateOne({ _id: id }, anuncio)
-
     if (updatedAnuncio.matchedCount === 0) {
       res.status(422).json({ message: 'Anúncio não encontrado!' })
       return
     }
-
     res.status(200).json(anuncio)
   } catch (error) {
     res.status(500).json({ erro: error })
   }
 };
 
-/* index.js */
 exports.deleteAnuncio = async (req, res) => {
   const id = req.params.id
-
   const anuncio = await Anuncio.findOne({ _id: id })
-
   if (!anuncio) {
     res.status(422).json({ message: 'Anúncio não encontrado!' })
     return
   }
-
   try {
     await Anuncio.deleteOne({ _id: id })
-
     res.status(200).json({ message: 'Anúncio removido com sucesso!' })
   } catch (error) {
     res.status(500).json({ erro: error })

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Agendamento = require("../models/agendamento.model");
 
-// ==> Método responsável por Criar um novo 'Anuncio':
 exports.registerNewAgendamento = async (req, res) => {
     try {       
       const newAgendamento = new Agendamento(req.body);
@@ -40,43 +39,35 @@ exports.registerNewAgendamento = async (req, res) => {
 
 
   exports.updateAgendamento = async (req, res) => {
-  const id = req.params.id
-
-  const { usuario, local, dia, horario, checkIn } = req.body
-
-  const agendamento = {
-    usuario,
-    local, 
-    dia, 
-    horario,
-    checkIn,
-  }
-
-  try {
-    const updatedAgendamento = await Agendamento.updateOne({ _id: id }, agendamento)
-
-    if (updatedAgendamento.matchedCount === 0) {
-      res.status(422).json({ message: 'Agendamento não encontrado!' })
-      return
+    const id = req.params.id
+    const { usuario, local, dia, horario, checkIn } = req.body
+    const agendamento = {
+      usuario,
+      local, 
+      dia, 
+      horario,
+      checkIn,
     }
+    try {
+      const updatedAgendamento = await Agendamento.updateOne({ _id: id }, agendamento)
+      if (updatedAgendamento.matchedCount === 0) {
+        res.status(422).json({ message: 'Agendamento não encontrado!' })
+        return
+      }
+      res.status(200).json(agendamento)
+    } catch (error) {
+      res.status(500).json({ erro: error })
+    }
+  };
 
-    res.status(200).json(agendamento)
-  } catch (error) {
-    res.status(500).json({ erro: error })
-  }
-};
 
-/* index.js */
 exports.deleteAgendamento = async (req, res) => {
   const id = req.params.id
-
   const agendamento = await Agendamento.findOne({ _id: id })
-
   if (!agendamento) {
     res.status(422).json({ message: 'Agendamento não encontrado!' })
     return
   }
-
   try {
     await Agendamento.deleteOne({ _id: id })
 

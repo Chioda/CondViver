@@ -11,7 +11,6 @@ import CadastrarAnuncios from '../views/CadastrarAnuncios'
 import AssembleiaViver from '../views/AssembleiaViver'
 import CheckInViver from '../views/CheckInViver'
 import AreaSindico from '../views/AreaSindico'
-import AtualizarAnuncio from '../views/AtualizarAnuncio'
 //import 'bootstrap'
 
 
@@ -28,11 +27,6 @@ const routes = [
     meta: {
       requireAuth: true,
     },
-  },
-  {
-  path: '/anunciosAtualizar/:id',
-  name: 'atualizarAnuncio',
-  component: AtualizarAnuncio,
   },  
   {
     path: '/anuncios',

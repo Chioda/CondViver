@@ -4,11 +4,8 @@
     <div class="body">
       <router-view />
       <div class="footer"><FooterViver /></div>
-    </div>
-    
-       
+    </div>      
   </div>
-
 </template>
 
 <script>
@@ -17,24 +14,24 @@
   
   export default {        
     components: {
-    NavBar,
-    FooterViver
+      NavBar,
+      FooterViver
     },          
   }
 </script>
 
 <style>
-.footer{
-    position:relative;
-    bottom: 0;  
-    width: 100%;
-    height: 100px;    
-    text-align: center;
-    line-height: 100px;
-}
-body {
-    background-image: url("../src/assets/Fundo.jpeg");
-    height: 600px;
+  .footer{
+      position:relative;
+      bottom: 0;  
+      width: 100%;
+      height: 100px;    
+      text-align: center;
+      line-height: 100px;
   }
+  body {
+      background-image: url("../src/assets/Fundo.jpeg");
+      height: 600px;
+    }
 
 </style>

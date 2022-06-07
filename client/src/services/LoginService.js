@@ -2,10 +2,7 @@ import swal from 'sweetalert';
 import Api from './Api'
 
 export default {
-  /**
-   * Método responsável por realizar um novo login 'User'
-   * (POST): localhost:3000/api/v1/login
-   */
+
   async loginUser(user) {
     try {
       const response = await Api().post('/login', user);

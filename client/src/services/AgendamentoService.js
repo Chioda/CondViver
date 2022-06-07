@@ -3,12 +3,6 @@ import Api from './Api'
 
 class AgendamentoService {
 
-    
-
-    /**
-     * Método responsável por criar um novo Anuncio  (new Register Anuncio)
-     * (POST): localhost:3000/api/v1/register
-     */
     static async registerNewAgendamento(newAgendamento) {
       try {
         const response = 
@@ -40,7 +34,7 @@ class AgendamentoService {
     return  Api().find(`/agendamento/${id}`);
   }
 
-  returnAgendamentoId
+  
   static async upDateAgendamento(id, agendamentos) {
     return  Api().patch(`/agendamento/${id}`, agendamentos);
   }

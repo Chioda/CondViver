@@ -13,17 +13,13 @@ const userSchema = new Schema({
   email: { type: String, maxlength: 30,  required: true},  
   password: { type: String, required: true },
   inadimplente: { type: Boolean },
-  tokens: [
-    {
-      token: { type: String, required: true },
-    },
-  ],
-}, {
+  tokens: [{ token: { type: String, required: true },},],
+},
+{
   timestamps: true,
   collection: 'users',
 });
 
-// ==> Esse método irá fazer o 'hash' da senha antes de salvar o modelo da classe 'User'
 userSchema.pre('save', async function (next) {
   const user = this;
   if (user.isModified('password')) {
@@ -32,7 +28,6 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-// ==> Esse método irá criar (gerar) uma autenticação auth para o 'User'
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign({ _id: user._id, name: user.name, email: user.email }, 'secret');
@@ -41,7 +36,6 @@ userSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-// ==> Esse método irá fazer uma pesquisa por um 'user' por 'email' e 'password'
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
   console.log(user);

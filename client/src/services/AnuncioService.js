@@ -1,15 +1,8 @@
-
 import swal from 'sweetalert';
 import Api from './Api'
 
 class AnuncioService {
 
-    
-
-    /**
-     * Método responsável por criar um novo Anuncio  (new Register Anuncio)
-     * (POST): localhost:3000/api/v1/register
-     */
     static async registerNewAnuncio(newAnuncio) {
       try {
         const response = 
@@ -41,8 +34,6 @@ class AnuncioService {
     return  Api().patch(`/anuncio/${id}`);
   }
 
-
 }
 
-
-  export default AnuncioService;  
+export default AnuncioService;  

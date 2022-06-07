@@ -1,5 +1,4 @@
-<template>
-  
+<template>  
   <div class="main-container">
     <div id="nav-area">      
       <h1 id="titulo">ÁREA COMUM</h1>
@@ -11,50 +10,38 @@
       <li class="lista-destaques">
         <div>
           <div class="lado-lado">
-          <img class="painel-corpo" src="/img/Academia.jpeg" alt="Criancas">          
-          <h1 class="painel-titulo">ACADEMIA</h1>
-                      
+            <img class="painel-corpo" src="/img/Academia.jpeg" alt="Criancas">          
+            <h1 class="painel-titulo">ACADEMIA</h1>                      
           </div>
           <div class="lado-lado">
-          <img class="painel-corpo" src="/img/Churrasqueira1.jpeg" alt="Covid">          
-          <h1 class="painel-titulo">CHURRASQUEIRA</h1>
-            
+            <img class="painel-corpo" src="/img/Churrasqueira1.jpeg" alt="Covid">          
+            <h1 class="painel-titulo">CHURRASQUEIRA</h1>            
           </div>
           <div class="lado-lado">
-          <img class="painel-corpo" src="/img/SL_Blz.jpeg" alt="Gas">         
-          <h1 class="painel-titulo">SALÃO DE BELEZA</h1>
-           
+            <img class="painel-corpo" src="/img/SL_Blz.jpeg" alt="Gas">         
+            <h1 class="painel-titulo">SALÃO DE BELEZA</h1>           
           </div>
         </div>
-
         <div>
           <div class="lado-lado">
-          <img class="painel-corpo" src="/img/SL_Festas.jpeg" alt="Criancas">          
-          <h1 class="painel-titulo">Salão de Festas</h1>
-                     
+            <img class="painel-corpo" src="/img/SL_Festas.jpeg" alt="Criancas">          
+            <h1 class="painel-titulo">Salão de Festas</h1>                     
           </div>
           <div class="lado-lado">
-          <img class="painel-corpo" src="/img/SL_Jogos.jpeg" alt="Covid">          
-          <h1 class="painel-titulo">Salão de Jogos</h1>
-             
+            <img class="painel-corpo" src="/img/SL_Jogos.jpeg" alt="Covid">          
+            <h1 class="painel-titulo">Salão de Jogos</h1>             
           </div>
           <div class="lado-lado">
-          <img class="painel-corpo" src="/img/Brinquedo.jpeg" alt="Gas">         
-          <h1 class="painel-titulo">Brinquedoteca</h1>
-           
+            <img class="painel-corpo" src="/img/Brinquedo.jpeg" alt="Gas">         
+            <h1 class="painel-titulo">Brinquedoteca</h1>           
           </div>
         </div>
       </li>
     </ul>
-
   </div>
-
 </template>
 
 <script>
-//import Api from '../services/Api'
-
-
   export default {
     name: 'AreaComum',
     methods:{
@@ -70,17 +57,16 @@
 
 <style scoped>
     
-    #titulo {
-      text-align: left;
-      color: white;
-      background: rgb(52, 52, 53);
-      
-      margin-right: 2%;
-      margin-top: 20px;
-      font-weight: bold;
-      margin: auto;
-      margin-left: 0;
-    }
+  #titulo {
+    text-align: left;
+    color: white;
+    background: rgb(52, 52, 53);
+    margin-right: 2%;
+    margin-top: 20px;
+    font-weight: bold;
+    margin: auto;
+    margin-left: 0;
+  }
 
   #nav-area {
     background: rgb(52, 52, 53);
@@ -92,15 +78,14 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 95%;
-    
-}
+    width: 95%;    
+  }
 
-#nav a{
-    text-decoration: none;
-}
+  #nav a{
+      text-decoration: none;
+  }
 
-.nav-item{
+  .nav-item{
     background-color: blue; 
     border-radius: 12px;
     padding: 8px 8px;
@@ -115,7 +100,7 @@
     background: #062486;
     color: #fff;
     text-decoration: none;
- } 
+  } 
 
 
     .painel-corpo {
@@ -131,23 +116,23 @@
     font-weight: bold;
   }
 
-.lado-lado {
-  background: white;
-  padding: 0 auto;
-  border: solid 2px grey;
-  display: inline-block;
-  margin: 40px;
-  box-shadow: 5px 5px 10px grey;
-  width: 300px;
-  height: 100%;
-  vertical-align: top;
-  text-align: left;
+  .lado-lado {
+    background: white;
+    padding: 0 auto;
+    border: solid 2px grey;
+    display: inline-block;
+    margin: 40px;
+    box-shadow: 5px 5px 10px grey;
+    width: 300px;
+    height: 100%;
+    vertical-align: top;
+    text-align: left;
 
-}
+  }
 
-.lista{
-  list-style: none;
-  margin-left: 5%;
-}
+  .lista{
+    list-style: none;
+    margin-left: 5%;
+  }
 
 </style>
