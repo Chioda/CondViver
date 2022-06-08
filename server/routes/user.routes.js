@@ -12,4 +12,10 @@ router.get('/userProfile', auth, userController.returnUserProfile);
 
 router.get('/user', userController.returnUser);
 
+router.patch('/user/:id', userController.updateUser);
+
+router.delete('/user/:id', userController.deleteUser)
+
+
+
 module.exports = router;

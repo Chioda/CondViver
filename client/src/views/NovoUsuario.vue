@@ -108,7 +108,7 @@ export default {
         apto: null,
         email: null,
         password: null,
-        inadimplente: "false",
+        inadimplente: false,
       },
       isSubmitted: false,
     };
