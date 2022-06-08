@@ -6,7 +6,7 @@
       <div class="main-container">
         <form @submit.prevent="anuncioSubmitForm()">            
             <div class="form-group">
-              <label for="title" class="text-white">Título</label>
+              <label for="title" class="text-white">Título:</label>
               <input type="text" 
                      class="form-control" 
                      placeholder="Título" 
@@ -15,13 +15,10 @@
                      required >
             </div> 
             <div class="form-group">
-              <label for="author" class="text-white">Autor</label>
-              <input type="text" 
-                     class="form-control" 
-                     placeholder="Autor" 
-                     name="author" 
-                     v-model="anuncioForm.author"
-                     required>
+              <label for="author" class="text-white">Autor: 
+                <br>
+                <p class="name-user">{{ anuncioForm.author }}</p>
+              </label>              
             </div>
             <div class="form-group">
               <label for="phone" class="text-white">Contato</label>
@@ -55,6 +52,7 @@
 
   import swal from 'sweetalert';
   import AnuncioService from '../services/AnuncioService';
+  import VueJwtDecode from 'vue-jwt-decode';
 
   export default {
     name: 'CadastrarAnuncios',
@@ -66,13 +64,21 @@
           phone: null,
           description: null,
         }, 
+        user: {},
         id: this.$route.params.id,   
         isSubmitted: false,
       };
     },
 
     methods: {
-      
+      getUser() {
+        const token = localStorage.getItem('jwt');
+        const tokenDecoded = VueJwtDecode.decode(token);
+        this.user = tokenDecoded;
+        this.anuncioForm.author = this.user.name;
+        console.log(tokenDecoded);
+      },
+
       anuncioSubmitForm() {},
 
       async submitAnuncio() {
@@ -88,6 +94,9 @@
           });
         }
       },
+    },
+    created() {
+      this.getUser();      
     },
   };  
 </script>
@@ -117,6 +126,13 @@
     width: 50%;
     margin-left:25%;
     
+  }
+
+    .name-user {
+    background: rgb(83, 83, 83);
+    font-weight: bold;
+    padding: 5px 10px;
+    color: white;
   }
 
   input::placeholder {
