@@ -146,7 +146,7 @@
     height: 100%;
     vertical-align: top;
     text-align: left;    
-    margin-left: 10%;
+    margin-left: 3%;
   }
 
 
