@@ -50,11 +50,8 @@
                 <a href="/areacomum" class="btn btn-warning">Cancelar</a>
                 <button  @click="submitAgendamento" type="submit" class="btn btn-primary">Agendar</button>
               </div>                   
-            </div>                   
-          </form>              
-          <form class="lado-lado">
-            <img id="alerta" src="../../public/img/Alerta.jpg" alt="alerta" width="600"  height="300"> 
-          </form>
+            </div> 
+          </form>  
         </li>
       </ul>
     </div> 
@@ -148,7 +145,8 @@
     width: 400px;
     height: 100%;
     vertical-align: top;
-    text-align: left;
+    text-align: left;    
+    margin-left: 35%;
   }
 
 
