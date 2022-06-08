@@ -105,7 +105,7 @@
     }
 
     .nav-item{
-        background-color: rgb(59, 59, 59); 
+        background-color: blue; 
         border-radius: 12px;
         padding: 8px 8px;
         margin: 5px;
