@@ -36,28 +36,40 @@
 <script>
     import swal from 'sweetalert';
     import Api from '../services/Api'    
-    
+    import VueJwtDecode from 'vue-jwt-decode';
 
     export default {
         name: "SindicoViver",  
         data() {
             return {
                 users: {},
-          
+                sindico: [],
                 isSubmitted: false,
             };
         },
         mounted(){
             this.getUser();
+            this.getSindico();
           },
 
         /*async mounted(){
-             this.getSindico();
+             
             await this.direcionaHome ();
         },*/
         methods: {                 
             async  getSindico(){
-                    await swal({
+                  const token = localStorage.getItem('jwt');
+                  const tokenDecoded = VueJwtDecode.decode(token);
+                  this.sindico = tokenDecoded;        
+                  console.log(tokenDecoded);
+                  if (this.sindico.sindico == true) {
+                       await swal({
+                        title: 'BEM VINDO!',
+                        text: 'Acesso liberado ao síndico',
+                        icon: 'success',
+                    });   
+                  } else this.direcionaHome(),
+                      await swal({
                         title: 'ACESSO RESTRITO!',
                         text: 'Apenas o síndico tem acesso a esse local!',
                         icon: 'warning',

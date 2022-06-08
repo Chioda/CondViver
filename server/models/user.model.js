@@ -13,6 +13,7 @@ const userSchema = new Schema({
   email: { type: String, maxlength: 30,  required: true},  
   password: { type: String, required: true },
   inadimplente: { type: Boolean },
+  sindico: { type: Boolean },
   tokens: [{ token: { type: String, required: true },},],
 },
 {
@@ -30,7 +31,8 @@ userSchema.pre('save', async function (next) {
 
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
-  const token = jwt.sign({ _id: user._id, name: user.name, email: user.email }, 'secret');
+  const token = jwt.sign(
+    { _id: user._id, name: user.name, email: user.email, inadimplente: user.inadimplente, sindico: user.sindico }, 'secret');
   user.tokens = user.tokens.concat({ token });
   await user.save();
   return token;

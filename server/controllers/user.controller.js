@@ -54,13 +54,14 @@ exports.returnUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const id = req.params.id
-  const { name, telefone, email, apto, inadimplente } = req.body
+  const { name, telefone, email, apto, inadimplente, sindico } = req.body
   const user = {
     name,
     telefone, 
     email, 
     apto,
     inadimplente,
+    sindico,
   }
   try {
     const updateUser = await User.updateOne({ _id: id }, user)

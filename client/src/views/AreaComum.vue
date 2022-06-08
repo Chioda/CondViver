@@ -3,7 +3,7 @@
     <div id="nav-area">      
       <h1 id="titulo">ÁREA COMUM</h1>
       <ul class="navbar-nav mr-auto">         
-        <button class="nav-item" type="Submit" href="#" @click.prevent="direcionaAgendamento">Agendamento</button>
+        <button class="nav-item" type="Submit" href="#" @click.prevent="direcionaAgendamento(user)">Agendamento</button>
       </ul>
     </div>
     <ul class="lista">
@@ -42,17 +42,45 @@
 </template>
 
 <script>
+
+  import swal from 'sweetalert'; 
+  import VueJwtDecode from 'vue-jwt-decode';
+
   export default {
     name: 'AreaComum',
-    methods:{
-      direcionaAgendamento () {
+    data() {
+      return { 
+        user: {},          
+        isSubmitted: false,
+      };
+    },
+    methods: {
+      getUser() {
+        const token = localStorage.getItem('jwt');
+        const tokenDecoded = VueJwtDecode.decode(token);
+        this.user = tokenDecoded;        
+        console.log(tokenDecoded);
+      },  
+      async direcionaAgendamento (user) {
+        if (user.inadimplente == true){
+            swal({
+            title: 'ACESSO NEGADO!',
+            text: 'Por favor reguarize seus débitos!',
+            icon: 'error',
+          });
+        }else {
         this.$router.push({ name: 'agendamento'}),
           setTimeout(function() {
             window.location.reload(1);
           }, 1);
+        }
       },                   
+    },    
+    created() {
+      this.getUser();      
     },
-  }
+  };  
+
 </script>
 
 <style scoped>

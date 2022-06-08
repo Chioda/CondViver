@@ -109,6 +109,7 @@ export default {
         email: null,
         password: null,
         inadimplente: false,
+        sindico: false,
       },
       isSubmitted: false,
     };
