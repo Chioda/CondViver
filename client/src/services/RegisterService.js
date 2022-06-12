@@ -19,7 +19,7 @@ export default {
     } catch (error) {
       swal({
         title: 'Oops!',
-        text: 'Alguma coisa deu errado aqui!',
+        text: 'Erro ao realizar cadastro!',
         icon: 'error',
       }); 
     }

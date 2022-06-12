@@ -91,7 +91,10 @@
       
       createAgendamento() {},
 
-      async submitAgendamento() {
+      async submitAgendamento() {{
+        if (this.agendamentoForm.local != null && 
+            this.agendamentoForm.dia != null && 
+            this.agendamentoForm.horario != null ){
         try {
           this.isSubmitted = true;          
           await AgendamentoService.registerNewAgendamento(this.agendamentoForm);
@@ -104,12 +107,19 @@
             icon: 'error',
           });
         }
-      },
+        }else swal({
+            title: 'Oops!',
+            text: 'Preencha os campos do agendamento',
+            icon: 'error',
+          })
+      }
     },
-    created() {
+    
+  },
+  created() {
       this.getUser();      
       },
-  };  
+  }
 </script>
 
 

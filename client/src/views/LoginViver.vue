@@ -70,10 +70,10 @@
                   
         } catch (error) {
           swal({
-            title: 'Login ou password Incorreto!',
-            text: 'Digite Login e password cadastrado!',
+            title: 'E-mail ou Senha Incorreta!',
+            text: 'Digite o E-mail e a Senha cadastrada!',
             icon: 'error',
-          });
+          });        
         }
       },
     },
